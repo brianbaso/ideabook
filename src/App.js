@@ -5,7 +5,7 @@ import Hand from './Hand.js';
 
 function App() {
   return (
-    <div>
+    <div className="Hand-Container">
       <Hand />
     </div>
   );
