@@ -1,9 +1,12 @@
 .Card {
   outline-color: blue;
-  margin-bottom: 0;
+  display: inline-flex;
 }
 
 .Hand {
-  display: inline-flex;
   margin-bottom: 20px;
+}
+
+.Hand-Container {
+  margin: 30px;
 }

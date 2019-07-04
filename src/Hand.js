@@ -1,45 +1,34 @@
 import React from 'react';
-import { Card, Button, CardTitle, CardText, Row, Col } from 'reactstrap';
+import axios from 'axios'
+import { Card, CardTitle, Col } from 'reactstrap';
 
-const Hand = (props) => {
-  return (
-    <div>
-      <Col className="Hand" sm="12" md={{ size: 12, offset: 3 }}>
-        <Col sm="2">
-          <Card body>
-            <CardTitle>Special Title Treatment</CardTitle>
-          </Card>
-        </Col>
-        <Col sm="2">
-          <Card body>
-            <CardTitle>Special Title Treatment</CardTitle>
-          </Card>
-        </Col>
-        <Col sm="2">
-          <Card body>
-            <CardTitle>Special Title Treatment</CardTitle>
-          </Card>
-        </Col>
-      </Col>
-      <Col className="Hand" sm="12" md={{ size: 12, offset: 3 }}>
-        <Col sm="2">
-          <Card body>
-            <CardTitle>Special Title Treatment</CardTitle>
-          </Card>
-        </Col>
-        <Col sm="2">
-          <Card body>
-            <CardTitle>Special Title Treatment</CardTitle>
-          </Card>
-        </Col>
-        <Col sm="2">
-          <Card body>
-            <CardTitle>Special Title Treatment</CardTitle>
-          </Card>
-        </Col>
-      </Col>
-    </div>
-  );
-};
+export default class Hand extends React.Component {
+  state = {
+    cards: []
+  }
 
-export default Hand;
+  componentDidMount() {
+    axios.get(`https://jsonplaceholder.typicode.com/users`)
+      .then(response => {
+        console.log(response);
+        const cards = response.data.slice(0,6);
+        this.setState({ cards });
+      })
+  }
+
+  render () {
+    return (
+      <div>
+        <Col className="Hand" sm="12" md={{ size: 12, offset: 0 }}>
+          {this.state.cards.map(card =>
+            <Col className="Card" sm="2">
+              <Card body>
+                <CardTitle>{card.name}</CardTitle>
+              </Card>
+            </Col>
+          )}
+        </Col>
+      </div>
+    );
+  };
+}
