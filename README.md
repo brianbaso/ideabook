@@ -1,68 +1,119 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Open Source Entrepreneurs - Functional Specifications
+Brian Baso 
+Status: Draft (6/30/19)
 
-## Available Scripts
+## 1. Vision
 
-In the project directory, you can run:
+Some people have a lot of creative startup ideas with potential, most people have none.
 
-### `npm start`
+In order to create an online community that creates and shares ideas for startups
+As an open source entrepreneur 
+I want a tool that helps me contrive ideas for startups and then get feedback from other OSEs
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Dribbble for startup/ side project inspiration?
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+## 2. Summary
 
-### `npm test`
+The OCEAN personality trait model, which is argued to be the most accurate personality evaluation to date by academic psychologists, and also was the foundation of the new age marketing called Psychographics by Cambridge Analytica… States that there are five different kinds of personality traits. (Openness (Creativity), Conscientiousness, Extraversion, Agreeableness, Neuroticism) Assuming this model is an accurate assessment of personality, then you would be foolish to say that “Everyone is creative”. Saying that everyone is creative is the equivalent to saying everyone is neurotic. This is obviously not true. The point I am trying to get across is that not everyone is creative, in fact, a small minority of people have the creative capacity to come up with feasible ideas for the businesses of tomorrow.
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+I want to create a community and a game. The game will help people come up with business ideas, it’s like cards of humanity for budding entrepreneurs. I predict that there will be a few members in the community (>20%) that will come up with any idea worth engaging. I predict that most of these people will already be busy with their own ventures, or just don’t have time to pursue most of the ideas they come up with. So why not crowd source these ideas for the startup businesses of tomorrow? Think of Elon Musk giving away the plans for Hyperloop, but at scale. 
 
-### `npm run build`
+## 3. Scope of Work
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### 3.1. In Scope User Stories
+#### 3.1.1 Feature Scenario: OSE plays game to generate startup ideas and practice creative entrepreneurial expression.
+As an aspiring entrepreneur who is unable to find an idea worth pursuing as a startup
+In order to methodically contrive startup ideas
+I can play a game that merges industries together and practice brainstorming useful ideas
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+##### 3.1.1.1 Game Scenario: OSE player starts a new game.
+As a player of a game that generates startup ideas
+In order to start the game
+I can press begin and seven cards will be dealt to me followed by one card flipped onto the table
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+##### 3.1.1.2 Game Scenario: OSE selects two ideas to merge.
+As a player of a game that generates startup ideas
+In order to merge two ideas
+I can click on a card in my hand and then type my idea into a text box that appears
 
-### `npm run eject`
+##### 3.1.1.3 Game Scenario: OSE saves an idea that was the result of merging two ideas.
+As a player of a game that generates startup ideas
+In order to save an idea that I generated
+I can press save and visit the idea later in my library
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+##### 3.1.1.4 Game Scenario: OSE customizes card stack.
+As a player of a game that generates startup ideas
+In order to customize the game’s card stack
+I can go to a separate page where I can add and remove cards
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+##### 3.1.1.5 Game Scenario: OSE turns on timed mode.
+As a player of a game that generates startup ideas
+In order to time myself and get into a flow state
+I can set the game on a mode where I am timed to make a decision
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+##### 3.1.1.6 Game Scenario: OSE invites a friend to play.
+As a player of a game that generates startup ideas
+In order to collaborate with friends online
+I can invite other friends to play with me 
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+#### 3.1.2 Feature Scenario: OSE comes up with a startup idea that is not worth publishing to the community.
+As an OSE game player who comes up with an idea that isn’t worth publishing
+In order to log the idea for future reference 
+I can save the idea to my own private idea library
 
-## Learn More
+#### 3.1.3 Feature Scenario: OSE comes up with a startup idea and publishes it to the community.
+As an OSE game player who comes up with an idea that is worth publishing
+In order to publish the idea to the community
+I can make the idea public and add some context to it
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+#### 3.1.4 Feature Scenario: OSE adds an idea to the community that was not generated from the game.
+As an OSE with an idea that was not generated from the game
+In order to publish my ideas to the idea library
+I can go to a seperate screen where I can input my idea
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+#### 3.1.5 Feature Scenario: OSE decides to pursue someone else's idea that was published in the community.
+As an OSE who finds an idea that is worth pursuing 
+In order to claim the idea
+I can notify the community and/or the idea’s publisher that I am going to pursue the idea (optional)
 
-### Code Splitting
+#### 3.1.6 Feature Scenario: OSE decides to modify another OSE’s idea to enhance it.
+As an OSE who finds an idea and wants to add input to it
+In order to modify the idea in the idea library and add myself as a collaborator 
+I can click on a button in the idea’s row in the idea library to submit an edit request to the publisher
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+#### 3.1.7 Feature Scenario: OSE decides to look up ideas according to a particular tag.
+As an OSE looking for ideas in a particular industry
+In order to browse through ideas generated in the community by other OSEs
+I can do a fuzzy search to view other ideas that include my idea’s tag
 
-### Analyzing the Bundle Size
+### 3.2. Key Performance Indicators 
+- Daily unique visitors to the site (With the constraint that the site needs to stay high-quality, educational, inspirational, and on-topic.)
+- Number of users
+- Number of countries with users
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+“Generally-speaking, for Indie Hackers, my focus nowadays is on taking what works and doing more of it. There’s actually a great quote from Charlie Munger about this. He calls it the “essential algorithm to life” or something lofty like that: find what works and do more of it.” - Courtland Allen
 
-### Making a Progressive Web App
+## 4. Core Scenarios & Experiences
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
 
-### Advanced Configuration
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+## 5. Functional Capabilities
 
-### Deployment
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
 
-### `npm run build` fails to minify
+## 6. Dependencies & Partner Requirements
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+
+
+## 7. Risks & Mitigations
+
+
+
+## 8. Appendix
+
+
+
+
+
+
+
