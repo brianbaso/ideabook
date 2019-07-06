@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios'
-import { Card, CardTitle, Col } from 'reactstrap';
+import { Row, Col, Container } from 'reactstrap';
 
 export default class Hand extends React.Component {
   state = {
@@ -10,25 +10,42 @@ export default class Hand extends React.Component {
   componentDidMount() {
     axios.get(`https://jsonplaceholder.typicode.com/users`)
       .then(response => {
-        console.log(response);
-        const cards = response.data.slice(0,6);
+        let cards = response.data.slice(0,8);
         this.setState({ cards });
       })
   }
 
   render () {
+    let handCards = this.state.cards.map(card => {
+      return <p>{card.name}</p>;
+    });
     return (
-      <div>
-        <Col className="Hand" sm="12" md={{ size: 12, offset: 0 }}>
-          {this.state.cards.map(card =>
-            <Col className="Card" sm="2">
-              <Card body>
-                <CardTitle>{card.name}</CardTitle>
-              </Card>
-            </Col>
-          )}
-        </Col>
-      </div>
+      <Container>
+        <Row>
+          <Col></Col>
+          <Col className="Hand-Card">{handCards[0]}</Col>
+          <Col className="Hand-Card">{handCards[1]}</Col>
+          <Col></Col>
+        </Row>
+        <Row>
+          <Col className="Hand-Card">{handCards[2]}</Col>
+          <Col></Col>
+          <Col></Col>
+          <Col className="Hand-Card">{handCards[3]}</Col>
+        </Row>
+        <Row>
+          <Col className="Hand-Card">{handCards[4]}</Col>
+          <Col></Col>
+          <Col></Col>
+          <Col className="Hand-Card">{handCards[5]}</Col>
+        </Row>
+        <Row>
+          <Col></Col>
+          <Col className="Hand-Card">{handCards[6]}</Col>
+          <Col className="Hand-Card">{handCards[7]}</Col>
+          <Col></Col>
+        </Row>
+      </Container>
     );
   };
 }
