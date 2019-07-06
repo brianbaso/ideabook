@@ -1,11 +1,10 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 import Hand from './Hand.js';
 
 function App() {
   return (
-    <div>
+    <div className="Hand-Container">
       <Hand />
     </div>
   );

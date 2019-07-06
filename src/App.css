@@ -1,9 +1,24 @@
 .Card {
   outline-color: blue;
-  margin-bottom: 0;
+  display: inline-flex;
 }
 
 .Hand {
-  display: inline-flex;
   margin-bottom: 20px;
+}
+
+.Hand-Container {
+  margin: 30px;
+  text-align: center;
+}
+
+.Hand-Card {
+  border-style: solid;
+  border-width: 4px;
+  border-radius: 10px;
+  font-size: 24px;
+  border-color: #414D56;
+  padding: 10 20 20 10;
+  padding: 40px 0 40px 0;
+  display: inline-block;
 }
