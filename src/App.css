@@ -8,17 +8,50 @@
 }
 
 .Hand-Container {
-  margin: 30px;
   text-align: center;
+  margin-top: 17.5vh;
 }
 
 .Hand-Card {
   border-style: solid;
   border-width: 4px;
   border-radius: 10px;
+  background-color: white;
   font-size: 24px;
   border-color: #414D56;
   padding: 10 20 20 10;
   padding: 40px 0 40px 0;
   display: inline-block;
+}
+
+.Card-1 {
+  margin: 0px 20px 20px 0;
+}
+
+.Card-2 {
+  margin: 0px 0 20px 20px;
+}
+
+.Card-3 {
+  margin: 10px 20px 10px 0;
+}
+
+.Card-4 {
+  margin: 10px 0 10px 20px;
+}
+
+.Card-5 {
+  margin: 10px 20px 10px 0;
+}
+
+.Card-6 {
+  margin: 10px 0 10px 20px;
+}
+
+.Card-7 {
+  margin: 20px 20px 0 0;
+}
+
+.Card-8 {
+  margin: 20px 0 0 20px;
 }

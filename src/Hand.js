@@ -17,32 +17,32 @@ export default class Hand extends React.Component {
 
   render () {
     let handCards = this.state.cards.map(card => {
-      return <p>{card.name}</p>;
+      return <text>{card.name}</text>;
     });
     return (
       <Container>
         <Row>
           <Col></Col>
-          <Col className="Hand-Card">{handCards[0]}</Col>
-          <Col className="Hand-Card">{handCards[1]}</Col>
+          <Col className="Hand-Card Card-1">{handCards[0]}</Col>
+          <Col className="Hand-Card Card-2">{handCards[1]}</Col>
           <Col></Col>
         </Row>
         <Row>
-          <Col className="Hand-Card">{handCards[2]}</Col>
+          <Col className="Hand-Card Card-3">{handCards[2]}</Col>
           <Col></Col>
           <Col></Col>
-          <Col className="Hand-Card">{handCards[3]}</Col>
+          <Col className="Hand-Card Card-4">{handCards[3]}</Col>
         </Row>
         <Row>
-          <Col className="Hand-Card">{handCards[4]}</Col>
+          <Col className="Hand-Card Card-5">{handCards[4]}</Col>
           <Col></Col>
           <Col></Col>
-          <Col className="Hand-Card">{handCards[5]}</Col>
+          <Col className="Hand-Card Card-6">{handCards[5]}</Col>
         </Row>
         <Row>
           <Col></Col>
-          <Col className="Hand-Card">{handCards[6]}</Col>
-          <Col className="Hand-Card">{handCards[7]}</Col>
+          <Col className="Hand-Card Card-7">{handCards[6]}</Col>
+          <Col className="Hand-Card Card-8">Annoying Guy</Col>
           <Col></Col>
         </Row>
       </Container>
