@@ -22,8 +22,9 @@ function DoExampleLoginWithCustomID() {
 
 function DoLoginWithCustomID() {
     var loginRequest = {
-      CustomId: "2112D4316A16FC4D",
-      TitleId: 22E9182380FB7800
+      CustomId: 'null',
+      TitleId: '6DE2D',
+      CreateAccount: true
     };
 
     PlayFabClient.LoginWithCustomID(loginRequest, LoginCallback);
@@ -50,7 +51,7 @@ function CompileErrorReport(error) {
     return fullErrors;
 }
 
-// Kick off the acutla login call
+// Kick off the actual login call
 DoLoginWithCustomID();
 
 ReactDOM.render(<App />, document.getElementById('root'));
