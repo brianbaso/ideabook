@@ -7,24 +7,11 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import PlayFab from '../node_modules/playfab-sdk/Scripts/PlayFab/PlayFab';
 import PlayFabClient from '../node_modules/playfab-sdk/Scripts/PlayFab/PlayFabClient';
 
-// PlayFab Logic
-function DoExampleLoginWithCustomID() {
-    PlayFab.settings.titleId = "144";
-    var loginRequest = {
-        // Currently, you need to look up the correct format for this object in the API reference for LoginWithCustomID.
-        TitleId: PlayFab.settings.titleId,
-        CustomId: "GettingStartedGuide",
-        CreateAccount: true
-    };
-
-    PlayFabClient.LoginWithCustomID(loginRequest, LoginCallback);
-}
 
 function DoLoginWithCustomID() {
     var loginRequest = {
-      CustomId: 'null',
       TitleId: '6DE2D',
-      CreateAccount: true
+      CustomId: '2112D4316A16FC4D'
     };
 
     PlayFabClient.LoginWithCustomID(loginRequest, LoginCallback);
