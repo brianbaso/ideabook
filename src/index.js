@@ -6,7 +6,6 @@ import * as serviceWorker from './serviceWorker';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import PlayFabClient from '../node_modules/playfab-sdk/Scripts/PlayFab/PlayFabClient';
 
-
 function DoLoginWithCustomID() {
     var loginRequest = {
       TitleId: '6DE2D',

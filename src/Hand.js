@@ -6,7 +6,15 @@ export default class Hand extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      hand: []
+      hand: [],
+      cardOneColor: "",
+      cardTwoColor: "",
+      cardThreeColor: "",
+      cardFourColor: "",
+      cardFiveColor: "",
+      cardSixColor: "",
+      cardSevenColor: "",
+      cardEightColor: ""
     };
   }
 
@@ -26,6 +34,54 @@ export default class Hand extends React.Component {
     return hand;
   }
 
+  cardOneClick = (e) => {
+    this.setState({
+      cardOneColor: "linear-gradient(230deg, rgba(255,128,109,1) 0%, rgba(251,203,66,1) 100%)"
+    })
+  }
+
+  cardTwoClick = (e) => {
+    this.setState({
+      cardTwoColor: "linear-gradient(230deg, rgba(255,128,109,1) 0%, rgba(251,203,66,1) 100%)"
+    })
+  }
+
+  cardThreeClick = (e) => {
+    this.setState({
+      cardThreeColor: "linear-gradient(230deg, rgba(255,128,109,1) 0%, rgba(251,203,66,1) 100%)"
+    })
+  }
+
+  cardFourClick = (e) => {
+    this.setState({
+      cardFourColor: "linear-gradient(230deg, rgba(255,128,109,1) 0%, rgba(251,203,66,1) 100%)"
+    })
+  }
+
+  cardFiveClick = (e) => {
+    this.setState({
+      cardFiveColor: "linear-gradient(230deg, rgba(255,128,109,1) 0%, rgba(251,203,66,1) 100%)"
+    })
+  }
+
+  cardSixClick = (e) => {
+    this.setState({
+      cardSixColor: "linear-gradient(230deg, rgba(255,128,109,1) 0%, rgba(251,203,66,1) 100%)"
+    })
+  }
+
+  cardSevenClick = (e) => {
+    this.setState({
+      cardSevenColor: "linear-gradient(230deg, rgba(255,128,109,1) 0%, rgba(251,203,66,1) 100%)"
+    })
+  }
+
+  cardEightClick = (e) => {
+    this.setState({
+      cardEightColor: "linear-gradient(230deg, rgba(255,128,109,1) 0%, rgba(251,203,66,1) 100%)"
+    })
+  }
+
   render () {
     let cards = this.state.hand.map(card => {
       return <p>{card}</p>;
@@ -34,26 +90,26 @@ export default class Hand extends React.Component {
       <Container>
         <Row>
           <Col></Col>
-          <Col className="Hand-Card Card-1">{cards[0]}</Col>
-          <Col className="Hand-Card Card-2">{cards[1]}</Col>
+          <Col className="Hand-Card Card-1" style={{background: this.state.cardOneColor}} onClick={this.cardOneClick}>{cards[0]}</Col>
+          <Col className="Hand-Card Card-2" style={{background: this.state.cardTwoColor}} onClick={this.cardTwoClick}>{cards[1]}</Col>
           <Col></Col>
         </Row>
         <Row>
-          <Col className="Hand-Card Card-3">{cards[2]}</Col>
+          <Col className="Hand-Card Card-3" style={{background: this.state.cardThreeColor}} onClick={this.cardThreeClick}>{cards[2]}</Col>
           <Col></Col>
           <Col></Col>
-          <Col className="Hand-Card Card-4">{cards[3]}</Col>
+          <Col className="Hand-Card Card-4" style={{background: this.state.cardFourColor}} onClick={this.cardFourClick}>{cards[3]}</Col>
         </Row>
         <Row>
-          <Col className="Hand-Card Card-5">{cards[4]}</Col>
+          <Col className="Hand-Card Card-5" style={{background: this.state.cardFiveColor}} onClick={this.cardFiveClick}>{cards[4]}</Col>
           <Col></Col>
           <Col></Col>
-          <Col className="Hand-Card Card-6">{cards[5]}</Col>
+          <Col className="Hand-Card Card-6" style={{background: this.state.cardSixColor}} onClick={this.cardSixClick}>{cards[5]}</Col>
         </Row>
         <Row>
           <Col></Col>
-          <Col className="Hand-Card Card-7">{cards[6]}</Col>
-          <Col className="Hand-Card Card-8">{cards[7]}</Col>
+          <Col className="Hand-Card Card-7" style={{background: this.state.cardSevenColor}} onClick={this.cardSevenClick}>{cards[6]}</Col>
+          <Col className="Hand-Card Card-8" style={{background: this.state.cardEightColor}} onClick={this.cardEightClick}>{cards[7]}</Col>
           <Col></Col>
         </Row>
       </Container>
