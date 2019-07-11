@@ -10,15 +10,17 @@ export default class Hand extends React.Component {
   componentDidMount() {
     axios.get(`./deck.json`)
       .then(response => {
-        let hand = response.data;
-        console.log(hand[0].cards);
-        this.setState({ hand: hand[0].cards });
+        const deck = response.data[0].cards;
+        console.log(response.data[0].cards);
+        const shuffle = deck.sort(() => 0.5 - Math.random());
+        let hand = shuffle.slice(0, 8);
+        this.setState({ hand: hand });
       })
   }
 
   render () {
     let cards = this.state.hand.map(card => {
-      return <text>{card}</text>;
+      return <p>{card}</p>;
     });
     return (
       <Container>

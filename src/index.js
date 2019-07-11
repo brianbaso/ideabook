@@ -4,7 +4,6 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import PlayFab from '../node_modules/playfab-sdk/Scripts/PlayFab/PlayFab';
 import PlayFabClient from '../node_modules/playfab-sdk/Scripts/PlayFab/PlayFabClient';
 
 
@@ -19,7 +18,7 @@ function DoLoginWithCustomID() {
 
 function LoginCallback(error, result) {
     if (result !== null) {
-        console.log("Congratulations, you made your first successful API call!");
+        console.log("Successfully logged in.");
     } else if (error !== null) {
         console.log("Something went wrong with your first API call.");
         console.log("Here's some debug information:");
