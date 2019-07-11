@@ -1,3 +1,7 @@
+p {
+  margin-bottom: 0 !important;
+}
+
 .Card {
   outline-color: blue;
   display: inline-flex;
