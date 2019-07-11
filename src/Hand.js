@@ -1,21 +1,29 @@
 import React from 'react';
 import axios from 'axios'
-import { Row, Col, Container } from 'reactstrap';
+import { Row, Col, Container, Button } from 'reactstrap';
 
 export default class Hand extends React.Component {
-  state = {
-    hand: []
+  constructor(props) {
+    super(props);
+    this.state = {
+      hand: []
+    };
   }
 
   componentDidMount() {
     axios.get(`./deck.json`)
       .then(response => {
         const deck = response.data[0].cards;
-        console.log(response.data[0].cards);
-        const shuffle = deck.sort(() => 0.5 - Math.random());
-        let hand = shuffle.slice(0, 8);
+        console.log(deck);
+        let hand = this.shuffleDeck(deck);
         this.setState({ hand: hand });
       })
+  }
+
+  shuffleDeck(deck) {
+    const shuffle = deck.sort(() => 0.5 - Math.random());
+    let hand = shuffle.slice(0, 8);
+    return hand;
   }
 
   render () {
