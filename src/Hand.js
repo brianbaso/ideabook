@@ -7,6 +7,7 @@ export default class Hand extends React.Component {
     super(props);
     this.state = {
       hand: [],
+      cardsSelected: 0,
       cardOneColor: "",
       cardTwoColor: "",
       cardThreeColor: "",
@@ -34,51 +35,77 @@ export default class Hand extends React.Component {
     return hand;
   }
 
+  teaseState(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+  }
+
+  // showIdeaInput() {
+  //   return (
+  //     { this.state.cardsSelected > 0 ? <ideaInput /> : null }
+  //   );
+  // }
+
+  // let ideaInput = React.createClass({
+  //   showIdeaInput() {
+  //     return (
+  //       <p>Amazing!</p>
+  //     );
+  //   }
+  // });
+
   cardOneClick = (e) => {
     this.setState({
-      cardOneColor: "linear-gradient(230deg, rgba(255,128,109,1) 0%, rgba(251,203,66,1) 100%)"
+      cardOneColor: "linear-gradient(230deg, rgba(255,128,109,1) 0%, rgba(251,203,66,1) 100%)",
+      cardsSelected: this.state.cardsSelected + 1
     })
   }
 
   cardTwoClick = (e) => {
     this.setState({
-      cardTwoColor: "linear-gradient(230deg, rgba(255,128,109,1) 0%, rgba(251,203,66,1) 100%)"
+      cardTwoColor: "linear-gradient(230deg, rgba(255,128,109,1) 0%, rgba(251,203,66,1) 100%)",
+      cardsSelected: this.state.cardsSelected + 1
     })
   }
 
   cardThreeClick = (e) => {
     this.setState({
-      cardThreeColor: "linear-gradient(230deg, rgba(255,128,109,1) 0%, rgba(251,203,66,1) 100%)"
+      cardThreeColor: "linear-gradient(230deg, rgba(255,128,109,1) 0%, rgba(251,203,66,1) 100%)",
+      cardsSelected: this.state.cardsSelected + 1
     })
   }
 
   cardFourClick = (e) => {
     this.setState({
-      cardFourColor: "linear-gradient(230deg, rgba(255,128,109,1) 0%, rgba(251,203,66,1) 100%)"
+      cardFourColor: "linear-gradient(230deg, rgba(255,128,109,1) 0%, rgba(251,203,66,1) 100%)",
+      cardsSelected: this.state.cardsSelected + 1
     })
   }
 
   cardFiveClick = (e) => {
     this.setState({
-      cardFiveColor: "linear-gradient(230deg, rgba(255,128,109,1) 0%, rgba(251,203,66,1) 100%)"
+      cardFiveColor: "linear-gradient(230deg, rgba(255,128,109,1) 0%, rgba(251,203,66,1) 100%)",
+      cardsSelected: this.state.cardsSelected + 1
     })
   }
 
   cardSixClick = (e) => {
     this.setState({
-      cardSixColor: "linear-gradient(230deg, rgba(255,128,109,1) 0%, rgba(251,203,66,1) 100%)"
+      cardSixColor: "linear-gradient(230deg, rgba(255,128,109,1) 0%, rgba(251,203,66,1) 100%)",
+      cardsSelected: this.state.cardsSelected + 1
     })
   }
 
   cardSevenClick = (e) => {
     this.setState({
-      cardSevenColor: "linear-gradient(230deg, rgba(255,128,109,1) 0%, rgba(251,203,66,1) 100%)"
+      cardSevenColor: "linear-gradient(230deg, rgba(255,128,109,1) 0%, rgba(251,203,66,1) 100%)",
+      cardsSelected: this.state.cardsSelected + 1
     })
   }
 
   cardEightClick = (e) => {
     this.setState({
-      cardEightColor: "linear-gradient(230deg, rgba(255,128,109,1) 0%, rgba(251,203,66,1) 100%)"
+      cardEightColor: "linear-gradient(230deg, rgba(255,128,109,1) 0%, rgba(251,203,66,1) 100%)",
+      cardsSelected: this.state.cardsSelected + 1
     })
   }
 
@@ -86,6 +113,9 @@ export default class Hand extends React.Component {
     let cards = this.state.hand.map(card => {
       return <p>{card}</p>;
     });
+
+    let IdeaInput = (() => { return <p>Amazing!</p>; });
+
     return (
       <Container>
         <Row>
@@ -103,7 +133,7 @@ export default class Hand extends React.Component {
         <Row>
           <Col className="Hand-Card Card-5" style={{background: this.state.cardFiveColor}} onClick={this.cardFiveClick}>{cards[4]}</Col>
           <Col></Col>
-          <Col></Col>
+          <Col>{ this.state.cardsSelected === 2 ? <IdeaInput /> : null }</Col>
           <Col className="Hand-Card Card-6" style={{background: this.state.cardSixColor}} onClick={this.cardSixClick}>{cards[5]}</Col>
         </Row>
         <Row>
