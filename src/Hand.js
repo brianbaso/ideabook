@@ -39,20 +39,6 @@ export default class Hand extends React.Component {
     return new Promise(resolve => setTimeout(resolve, ms));
   }
 
-  // showIdeaInput() {
-  //   return (
-  //     { this.state.cardsSelected > 0 ? <ideaInput /> : null }
-  //   );
-  // }
-
-  // let ideaInput = React.createClass({
-  //   showIdeaInput() {
-  //     return (
-  //       <p>Amazing!</p>
-  //     );
-  //   }
-  // });
-
   cardOneClick = (e) => {
     this.setState({
       cardOneColor: "linear-gradient(230deg, rgba(255,128,109,1) 0%, rgba(251,203,66,1) 100%)",
