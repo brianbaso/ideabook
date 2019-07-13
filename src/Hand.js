@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios'
 import { Row, Col, Container, Button } from 'reactstrap';
+import IdeaInput from './IdeaInput.js'
 
 export default class Hand extends React.Component {
   constructor(props) {
@@ -99,8 +100,6 @@ export default class Hand extends React.Component {
     let cards = this.state.hand.map(card => {
       return <p>{card}</p>;
     });
-
-    let IdeaInput = (() => { return <p>Amazing!</p>; });
 
     return (
       <Container>
