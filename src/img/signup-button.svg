@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="123px" height="48px" viewBox="0 0 123 48" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 53 (72520) - https://sketchapp.com -->
+    <title>Group 3</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <filter x="-3.3%" y="-8.7%" width="106.6%" height="117.4%" filterUnits="objectBoundingBox" id="filter-1">
+            <feOffset dx="0" dy="1" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="0.5" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.5 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="SourceGraphic"></feMergeNode>
+            </feMerge>
+        </filter>
+        <linearGradient x1="97.3828509%" y1="43.302642%" x2="3.78682801%" y2="57.2262824%" id="linearGradient-2">
+            <stop stop-color="#FF806D" offset="0%"></stop>
+            <stop stop-color="#FBCB42" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Home-Screen---Community" transform="translate(-1070.000000, -18.000000)">
+            <g id="Group-10">
+                <g id="Group" transform="translate(933.000000, 18.000000)">
+                    <g id="Group-3" filter="url(#filter-1)" transform="translate(138.000000, 0.000000)">
+                        <rect id="Rectangle" fill="url(#linearGradient-2)" x="0" y="0" width="121" height="46" rx="5"></rect>
+                        <text id="SIGN-UP" font-family="Gravity-Bold, Gravity" font-size="20" font-weight="bold" letter-spacing="-0.4545454" fill="#FFFFFF">
+                            <tspan x="20" y="31">SIGN UP</tspan>
+                        </text>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

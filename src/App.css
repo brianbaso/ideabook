@@ -2,6 +2,37 @@ p {
   margin-bottom: 0 !important;
 }
 
+.navbar {
+  margin-bottom: 11vh;
+  background: #8DE1E0;
+  padding: 0 10px 2.5px 10px !important;
+  box-shadow: 0 0 1px 0 grey;
+}
+
+.navbar-logo {
+  height: 40px;
+}
+
+.navbar-text {
+  font-weight: 500;
+}
+
+.navbar-text-buttons {
+  padding-top: 7px;
+}
+
+.navbar-buttons {
+  height: 35px;
+}
+
+.navbar-buttons-parent-left {
+  padding-right: 4px !important;
+}
+
+.navbar-buttons-parent-right {
+  padding-left: 4px !important;
+}
+
 .Card {
   outline-color: blue;
   display: inline-flex;
@@ -13,7 +44,6 @@ p {
 
 .Hand-Container {
   text-align: center;
-  margin-top: 17.5vh;
 }
 
 .Hand-Card {

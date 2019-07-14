@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios'
 import { Row, Col, Container } from 'reactstrap';
 import IdeaInput from './IdeaInput.js'
+import NavBar from './NavBar.js'
 
 export default class Hand extends React.Component {
   constructor(props) {
@@ -101,32 +102,35 @@ export default class Hand extends React.Component {
     });
 
     return (
-      <Container>
-        <Row>
-          <Col></Col>
-          <Col className="Hand-Card Card-1" style={{background: this.state.cardOneColor}} onClick={this.cardOneClick}>{cards[0]}</Col>
-          <Col className="Hand-Card Card-2" style={{background: this.state.cardTwoColor}} onClick={this.cardTwoClick}>{cards[1]}</Col>
-          <Col></Col>
-        </Row>
-        <Row>
-          <Col className="Hand-Card Card-3" style={{background: this.state.cardThreeColor}} onClick={this.cardThreeClick}>{cards[2]}</Col>
-          <Col></Col>
-          <Col></Col>
-          <Col className="Hand-Card Card-4" style={{background: this.state.cardFourColor}} onClick={this.cardFourClick}>{cards[3]}</Col>
-        </Row>
-        <Row>
-          <Col className="Hand-Card Card-5" style={{background: this.state.cardFiveColor}} onClick={this.cardFiveClick}>{cards[4]}</Col>
-          <Col></Col>
-          <Col>{ this.state.cardsSelected === 2 ? <IdeaInput /> : null }</Col>
-          <Col className="Hand-Card Card-6" style={{background: this.state.cardSixColor}} onClick={this.cardSixClick}>{cards[5]}</Col>
-        </Row>
-        <Row>
-          <Col></Col>
-          <Col className="Hand-Card Card-7" style={{background: this.state.cardSevenColor}} onClick={this.cardSevenClick}>{cards[6]}</Col>
-          <Col className="Hand-Card Card-8" style={{background: this.state.cardEightColor}} onClick={this.cardEightClick}>{cards[7]}</Col>
-          <Col></Col>
-        </Row>
-      </Container>
+      <div>
+        <NavBar />
+        <Container>
+          <Row>
+            <Col></Col>
+            <Col className="Hand-Card Card-1" style={{background: this.state.cardOneColor}} onClick={this.cardOneClick}>{cards[0]}</Col>
+            <Col className="Hand-Card Card-2" style={{background: this.state.cardTwoColor}} onClick={this.cardTwoClick}>{cards[1]}</Col>
+            <Col></Col>
+          </Row>
+          <Row>
+            <Col className="Hand-Card Card-3" style={{background: this.state.cardThreeColor}} onClick={this.cardThreeClick}>{cards[2]}</Col>
+            <Col></Col>
+            <Col></Col>
+            <Col className="Hand-Card Card-4" style={{background: this.state.cardFourColor}} onClick={this.cardFourClick}>{cards[3]}</Col>
+          </Row>
+          <Row>
+            <Col className="Hand-Card Card-5" style={{background: this.state.cardFiveColor}} onClick={this.cardFiveClick}>{cards[4]}</Col>
+            <Col></Col>
+            <Col>{ this.state.cardsSelected === 2 ? <IdeaInput /> : null }</Col>
+            <Col className="Hand-Card Card-6" style={{background: this.state.cardSixColor}} onClick={this.cardSixClick}>{cards[5]}</Col>
+          </Row>
+          <Row>
+            <Col></Col>
+            <Col className="Hand-Card Card-7" style={{background: this.state.cardSevenColor}} onClick={this.cardSevenClick}>{cards[6]}</Col>
+            <Col className="Hand-Card Card-8" style={{background: this.state.cardEightColor}} onClick={this.cardEightClick}>{cards[7]}</Col>
+            <Col></Col>
+          </Row>
+        </Container>
+      </div>
     );
   };
 }
