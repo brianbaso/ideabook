@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios'
-import { Row, Col, Container, Button } from 'reactstrap';
+import { Row, Col, Container } from 'reactstrap';
 import IdeaInput from './IdeaInput.js'
 
 export default class Hand extends React.Component {
@@ -24,7 +24,6 @@ export default class Hand extends React.Component {
     axios.get(`./deck.json`)
       .then(response => {
         const deck = response.data[0].cards;
-        console.log(deck);
         let hand = this.shuffleDeck(deck);
         this.setState({ hand: hand });
       })

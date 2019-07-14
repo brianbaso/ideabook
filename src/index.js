@@ -2,75 +2,47 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
+import Config from './config/config.json'
 import * as serviceWorker from './serviceWorker';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import PlayFabClient from '../node_modules/playfab-sdk/Scripts/PlayFab/PlayFabClient';
 
-PlayFabClient.settings.titleId = '6DE2D';
+PlayFabClient.settings.titleId = Config.playFabTitleId;
 
-function DoLoginWithCustomID() {
-    var loginRequest = {
-      TitleId: '6DE2D',
-      CustomId: '2112D4316A16FC4D'
-    };
+function doLoginWithCustomId() {
+  var loginRequest = {
+    TitleId: Config.playFabTitleId,
+    CustomId: Config.testPlayerCustomId
+  };
 
-    PlayFabClient.LoginWithCustomID(loginRequest, SaveUserData);
+  PlayFabClient.LoginWithCustomID(loginRequest, loginCallback);
 }
 
-function LoginCallback(error, result) {
+function loginCallback(error, result) {
     if (result !== null) {
         console.log("Successfully logged in.");
     } else if (error !== null) {
         console.log("Something went wrong with your first API call.");
         console.log("Here's some debug information:");
-        console.log(CompileErrorReport(error));
+        console.log(compileErrorReport(error));
     }
 }
 
-// This is a utility function we haven't put into the core SDK yet. Feel free to use it.
-function CompileErrorReport(error) {
-    if (error == null)
-        return "error is null";
-    var fullErrors = error.errorMessage;
-    for (var paramName in error.errorDetails)
-        for (var msgIdx in error.errorDetails[paramName])
-            fullErrors += "\n" + paramName + ": " + error.errorDetails[paramName][msgIdx];
-    return fullErrors;
+function compileErrorReport(error) {
+  if (error == null)
+    return "";
+  let fullErrors = error.errorMessage;
+  for (let paramName in error.errorDetails)
+    for (let msgIdx in error.errorDetails[paramName])
+      fullErrors += "\n" + paramName + ": " + error.errorDetails[paramName][msgIdx];
+  return fullErrors;
 }
 
-function SaveUserDataCallback(error, result) {
-  if (result !== null) {
-      console.log('Result', result);
-  } else if (error !== null) {
-      console.log("Something went wrong with your SaveUserData call.");
-      console.log("Here's some debug information:");
-      console.log(CompileErrorReport(error));
-  }
-}
+doLoginWithCustomId();
 
-function SaveUserData() {
-    var requestBody = {
-      Data: {testKey: "testValue"},
-      Permission: "Private"
-    };
-
-    try {
-      // debugger;
-      PlayFabClient.UpdateUserData(requestBody, SaveUserDataCallback);
-      // console.log(UpdateUserDataResult);
-    } catch(e) {
-      CompileErrorReport(e);
-      console.log(e);
-    }
-}
-
-// Kick off the actual login call
-DoLoginWithCustomID();
-// SaveUserData();
-
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(<App/>, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.register();
+serviceWorker.unregister();
