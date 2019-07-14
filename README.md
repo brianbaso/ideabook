@@ -1,4 +1,4 @@
-# Open Source Entrepreneurs - Functional Specifications
+# Neuroquery - Functional Specifications
 Brian Baso 
 Status: Draft (6/30/19)
 
