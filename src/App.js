@@ -1,10 +1,9 @@
 import React from 'react';
 import './App.css';
-import Hand from './Hand.js';
 
 function App() {
   return (
-    <div className="Hand-Container">
+    <div className="Parent-Container">
       <Hand />
     </div>
   );
