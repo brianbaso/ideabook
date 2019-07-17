@@ -1,11 +1,18 @@
 import React from 'react';
 import './App.css';
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 function App() {
   return (
-    <div className="Parent-Container">
-      <Hand />
-    </div>
+    <Router>
+      <div className="Parent-Container">
+        <NavBar/>
+
+        <Route path="/" exact component={}/>
+        <Route path="/about/" component={}/>
+        <Route path="/users/" component={}/>
+      </div>
+    </Router>
   );
 }
 
