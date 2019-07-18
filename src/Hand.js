@@ -25,7 +25,7 @@ export default class Hand extends React.Component {
       .then(response => {
         const deck = response.data[0].cards;
         let hand = this.shuffleDeck(deck);
-        this.setState({ hand: hand });
+        this.setState({ hand : hand });
       })
   }
 
