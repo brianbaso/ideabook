@@ -1,8 +1,6 @@
 import React from 'react';
 import {
-  Collapse,
   Navbar,
-  NavbarToggler,
   NavbarBrand,
   Nav,
   NavItem,
@@ -17,27 +15,12 @@ import loginButton from './img/login-button.png';
 import signupButton from './img/signup-button.png';
 
 export default class NavBar extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.toggle = this.toggle.bind(this);
-    this.state = {
-      isOpen: false
-    };
-  }
-  toggle() {
-    this.setState({
-      isOpen: !this.state.isOpen
-    });
-  }
   render() {
     return (
       <Router>
-        <div>
+        <div className="Parent-Container">
           <Navbar light expand="md">
-            <NavbarBrand href="/"><img className="navbar-logo" alt="Neuroquery" src={nqlogo}/></NavbarBrand>
-            <NavbarToggler onClick={this.toggle} />
-            <Collapse isOpen={this.state.isOpen} navbar>
+            <Link to="/"><img className="navbar-logo" alt="Neuroquery" src={nqlogo}/></Link>
               <Nav className="ml-auto" navbar>
                 <NavItem className="navbar-text-buttons">
                   <Link to="/library/" className="navbar-text">Library</Link>
@@ -56,8 +39,11 @@ export default class NavBar extends React.Component {
                   </NavLink>
                 </NavItem>
               </Nav>
-            </Collapse>
           </Navbar>
+
+          <Route exact path="/" component={Community}/>
+          <Route path="/game/" component={Hand}/>
+          <Route path="/library/" component={Library}/>
         </div>
       </Router>
     );

@@ -2,7 +2,6 @@ import React from 'react';
 import axios from 'axios'
 import { Row, Col, Container } from 'reactstrap';
 import IdeaInput from './IdeaInput.js'
-import NavBar from './NavBar.js'
 
 export default class Hand extends React.Component {
   constructor(props) {
