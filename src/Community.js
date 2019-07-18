@@ -1,7 +1,7 @@
 import React from 'react';
 import { Toast, ToastBody, ToastHeader } from 'reactstrap';
 
-export default class IdeaLibrary extends React.Component {
+export default class Community extends React.Component {
   constructor(props) {
     super(props);
 
@@ -16,7 +16,7 @@ export default class IdeaLibrary extends React.Component {
         <div className="p-3 my-2 rounded">
           <Toast>
             <ToastHeader>
-              Reactstrap
+              Community
             </ToastHeader>
             <ToastBody>
               This is a toast on a white background — check it out!

@@ -9,8 +9,9 @@ import {
   NavLink
  } from 'reactstrap';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import IdeaLibrary from './IdeaLibrary.js';
-
+import Library from './Library.js';
+import Community from './Community.js';
+import Hand from './Hand.js';
 import nqlogo from './img/neuroquery-logo.svg';
 import loginButton from './img/login-button.png';
 import signupButton from './img/signup-button.png';
@@ -39,10 +40,10 @@ export default class NavBar extends React.Component {
             <Collapse isOpen={this.state.isOpen} navbar>
               <Nav className="ml-auto" navbar>
                 <NavItem className="navbar-text-buttons">
-                  <Link to="/IdeaLibrary/" className="navbar-text">Library</Link>
+                  <Link to="/library/" className="navbar-text">Library</Link>
                 </NavItem>
                 <NavItem className="navbar-text-buttons">
-                  <NavLink className="navbar-text" href="https://github.com/reactstrap/reactstrap">Game</NavLink>
+                  <Link to="/game/" className="navbar-text">Game</Link>
                 </NavItem>
                 <NavItem>
                   <NavLink className="navbar-buttons-parent-left" href="https://github.com/reactstrap/reactstrap">
@@ -57,8 +58,6 @@ export default class NavBar extends React.Component {
               </Nav>
             </Collapse>
           </Navbar>
-
-          <Route path="/IdeaLibrary/" component={IdeaLibrary} />
         </div>
       </Router>
     );

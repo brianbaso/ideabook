@@ -103,7 +103,6 @@ export default class Hand extends React.Component {
 
     return (
       <div>
-        <NavBar />
         <Container>
           <Row>
             <Col></Col>
