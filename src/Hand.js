@@ -22,7 +22,7 @@ export default class Hand extends React.Component {
   }
 
   componentDidMount() {
-    axios.get(`./deck.json`)
+    axios.get(`../deck.json`)
       .then(response => {
         const deck = response.data[0].cards;
         let hand = this.shuffleDeck(deck);
