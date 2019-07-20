@@ -12,12 +12,16 @@ export default class Library extends React.Component {
     };
   }
 
+  // componentDidMount() {
+  //   let userData = this.getUserData();
+  //   console.log("User data is:", this.state.userData);
+  // }
+
   componentDidMount() {
-    let userData = this.getUserData();
-    this.setState({ userData : userData });
+    this.getUserData();
   }
 
-  getUserData() {
+  async getUserData() {
     const requestBody = {
       Data: {
         PlayFabId: Config.testPlayerTitleId,
@@ -26,12 +30,24 @@ export default class Library extends React.Component {
 
     try {
       let response = PlayFabClient.GetUserData(requestBody, this.getUserDataCallback);
-      console.log(response);
-      return response;
+      console.log('Response:', response);
+      this.setState({ userData : response });
+      console.log('User data state', this.state.userData);
+      console.log('Response:', response);
+
     } catch(e) {
       this.compileErrorReport(e);
       console.log(e);
     }
+
+    // try {
+    //   PlayFabClient.GetUserData(requestBody, this.getUserDataCallback)
+    //     .then((response) => this.setState({ userData : response }))
+    //     .then((response) => console.log('User data state', this.state.userData));
+    // } catch(e) {
+    //   this.compileErrorReport(e);
+    //   console.log(e);
+    // }
   }
 
   getUserDataCallback(error, result) {
