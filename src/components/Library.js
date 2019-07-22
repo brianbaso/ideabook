@@ -9,7 +9,7 @@ export default class Library extends React.Component {
     super(props);
 
     this.state = {
-      userData: []
+      userData: {}
     };
   }
 
@@ -22,7 +22,7 @@ export default class Library extends React.Component {
 
     PlayFabClient.GetUserData(requestBody, (error, result) => {
       if (result !== null) {
-        this.setState({ userData: result.data });
+        this.setState({ userData: result.data.Data });
         console.log('User data state', this.state.userData);
       } else if (error !== null) {
         console.log("Something went wrong with your GetUserData call.");
@@ -33,18 +33,17 @@ export default class Library extends React.Component {
   }
 
   render() {
+    for (let key in this.state.userData) {
+      if (this.state.userData.hasOwnProperty(key)) {
+        console.log(key + ' -> ' + this.state.userData[key].Value);
+      }
+    }
+
     return (
       <div>
-        <div className="p-3 my-2 rounded">
-          <Toast>
-            <ToastHeader>
-              Library
-            </ToastHeader>
-            <ToastBody>
-              This is a toast on a white background — check it out!
-            </ToastBody>
-          </Toast>
-        </div>
+        <ul>
+          <p>this</p>
+        </ul>
       </div>
     );
   }
