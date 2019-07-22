@@ -10,6 +10,8 @@ export default class Library extends React.Component {
     this.state = {
       userData: []
     };
+
+    this.getUserData = this.getUserData.bind(this);
   }
 
   // componentDidMount() {
@@ -28,17 +30,26 @@ export default class Library extends React.Component {
       }
     };
 
-    try {
-      let response = PlayFabClient.GetUserData(requestBody, this.getUserDataCallback);
-      console.log('Response:', response);
-      this.setState({ userData : response });
-      console.log('User data state', this.state.userData);
-      console.log('Response:', response);
+    // try {
+    PlayFabClient.GetUserData(requestBody, (error, result) => {
+      if (result !== null) {
+        this.setState({ userData: result.data });
+        console.log('User data state', this.state.userData);
+      } else if (error !== null) {
+        console.log("Something went wrong with your GetUserData call.");
+        console.log("Here's some debug information:");
+        console.log(this.compileErrorReport(error));
+      }
+    });
+      // console.log('Response:', response);
+      // this.setState({ userData : response });
+      // console.log('User data state', this.state.userData);
+      // console.log('Response:', response);
 
-    } catch(e) {
-      this.compileErrorReport(e);
-      console.log(e);
-    }
+    // } catch(e) {
+    //   this.compileErrorReport(e);
+    //   console.log(e);
+    // }
 
     // try {
     //   PlayFabClient.GetUserData(requestBody, this.getUserDataCallback)
@@ -50,15 +61,15 @@ export default class Library extends React.Component {
     // }
   }
 
-  getUserDataCallback(error, result) {
-    if (result !== null) {
-      console.log('Result', result);
-    } else if (error !== null) {
-      console.log("Something went wrong with your GetUserData call.");
-      console.log("Here's some debug information:");
-      console.log(this.compileErrorReport(error));
-    }
-  }
+  // getUserDataCallback(error, result) {
+  //   if (result !== null) {
+  //     console.log('Result', result);
+  //   } else if (error !== null) {
+  //     console.log("Something went wrong with your GetUserData call.");
+  //     console.log("Here's some debug information:");
+  //     console.log(this.compileErrorReport(error));
+  //   }
+  // }
 
   compileErrorReport(error) {
     if (error == null)
