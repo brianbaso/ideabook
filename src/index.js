@@ -28,7 +28,7 @@ function loginCallback(error, result) {
     }
 }
 
-function compileErrorReport(error) {
+export default function compileErrorReport(error) {
   if (error == null)
     return "";
   let fullErrors = error.errorMessage;

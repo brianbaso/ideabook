@@ -9,9 +9,9 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import Library from './Library.js';
 import Community from './Community.js';
 import Hand from './Hand.js';
-import nqlogo from './img/neuroquery-logo.svg';
-import loginButton from './img/login-button.png';
-import signupButton from './img/signup-button.png';
+import logo from '../img/neuroquery-logo.svg';
+import loginButton from '../img/login-button.png';
+import signupButton from '../img/signup-button.png';
 
 export default class NavBar extends React.Component {
   render() {
@@ -19,7 +19,7 @@ export default class NavBar extends React.Component {
       <Router>
         <div className="Parent-Container">
           <Navbar light expand="md">
-            <Link to="/"><img className="navbar-logo" alt="Neuroquery" src={nqlogo}/></Link>
+            <Link to="/"><img className="navbar-logo" alt="Neuroquery" src={logo}/></Link>
               <Nav className="ml-auto" navbar>
                 <NavItem className="navbar-text-buttons">
                   <Link to="/library/" className="navbar-text">Library</Link>

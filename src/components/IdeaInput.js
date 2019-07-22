@@ -1,6 +1,6 @@
 import React from 'react';
 import { Form, FormGroup, Input, Button } from 'reactstrap';
-import PlayFabClient from '../node_modules/playfab-sdk/Scripts/PlayFab/PlayFabClient';
+import PlayFabClient from '../../node_modules/playfab-sdk/Scripts/PlayFab/PlayFabClient';
 
 export default class IdeaInput extends React.Component {
   constructor(props) {
