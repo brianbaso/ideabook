@@ -28,7 +28,7 @@ export default class IdeaInput extends React.Component {
   saveUserData() {
     const requestBody = {
       Data: {
-        idea: this.state.value
+        idea1: this.state.value
       },
       Permission: "Private"
     };

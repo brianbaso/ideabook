@@ -33,17 +33,29 @@ export default class Library extends React.Component {
   }
 
   render() {
+    const userIdeas = [];
+
     for (let key in this.state.userData) {
       if (this.state.userData.hasOwnProperty(key)) {
-        console.log(key + ' -> ' + this.state.userData[key].Value);
+        userIdeas.push(
+          <div className="p-3 my-2 rounded">
+            <Toast>
+              <ToastHeader>
+                {key}
+              </ToastHeader>
+              <ToastBody>
+                {this.state.userData[key].Value}
+              </ToastBody>
+            </Toast>
+          </div>
+        );
       }
+      console.log('User ideas:', userIdeas);
     }
 
     return (
       <div>
-        <ul>
-          <p>this</p>
-        </ul>
+        {userIdeas}
       </div>
     );
   }
