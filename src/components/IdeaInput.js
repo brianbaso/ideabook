@@ -26,16 +26,22 @@ export default class IdeaInput extends React.Component {
     event.preventDefault();
   }
 
+
+  // createData() {
+  //
+  // }
+
   saveUserData() {
     const uniqueId = uuidv1();
     const requestBody = {
       Data: {
-        uniqueId: this.state.value
+        [uniqueId]: this.state.value
       },
       Permission: "Private"
     };
 
     try {
+      console.log(requestBody);
       PlayFabClient.UpdateUserData(requestBody, this.saveUserDataCallback);
     } catch(e) {
       this.compileErrorReport(e);
