@@ -8,6 +8,7 @@ export default class Hand extends React.Component {
     super(props);
     this.state = {
       hand: [],
+      submissionTagz: [],
       cardsSelected: 0,
       cardOneColor: "",
       cardTwoColor: "",
@@ -40,10 +41,15 @@ export default class Hand extends React.Component {
   }
 
   cardOneClick = (e) => {
+    let submissionTags = this.state.submissionTagz.concat(this.state.hand[0]);
+    console.log('Submission tags:', submissionTags);
+
     this.setState({
       cardOneColor: "linear-gradient(230deg, rgba(255,128,109,1) 0%, rgba(251,203,66,1) 100%)",
-      cardsSelected: this.state.cardsSelected + 1
+      cardsSelected: this.state.cardsSelected + 1,
+      submissionTagz: submissionTags
     })
+    console.log('Submission tags:', this.state.submissionTagz);
   }
 
   cardTwoClick = (e) => {
