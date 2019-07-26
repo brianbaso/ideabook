@@ -1,5 +1,5 @@
 import React from 'react';
-import { Toast, ToastBody, ToastHeader } from 'reactstrap';
+import { Toast, ToastBody, ToastHeader, Container } from 'reactstrap';
 import Config from '../config/config.json'
 import ErrorHandlers from '../index.js'
 import PlayFabClient from '../../node_modules/playfab-sdk/Scripts/PlayFab/PlayFabClient';
@@ -38,12 +38,12 @@ export default class Library extends React.Component {
     for (let key in this.state.userData) {
       if (this.state.userData.hasOwnProperty(key)) {
         userIdeas.push(
-          <div className="p-3 my-2 rounded">
-            <Toast>
-              <ToastHeader>
+          <div className="my-2 rounded" id="libraryParentDiv">
+            <Toast id="libraryParentToast">
+              <ToastHeader id="libraryHeaderToast">
                 {key}
               </ToastHeader>
-              <ToastBody>
+              <ToastBody id="libraryBodyToast">
                 {this.state.userData[key].Value}
               </ToastBody>
             </Toast>
@@ -54,7 +54,7 @@ export default class Library extends React.Component {
     }
 
     return (
-      <div>
+      <div id="libraryContainer">
         {userIdeas}
       </div>
     );

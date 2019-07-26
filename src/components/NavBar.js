@@ -17,7 +17,7 @@ export default class NavBar extends React.Component {
   render() {
     return (
       <Router>
-        <div className="Parent-Container">
+        <div>
           <Navbar light expand="md">
             <Link to="/"><img className="navbar-logo" alt="Neuroquery" src={logo}/></Link>
               <Nav className="ml-auto" navbar>

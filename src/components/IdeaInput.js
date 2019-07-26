@@ -1,7 +1,8 @@
 import React from 'react';
 import { Form, FormGroup, Input, Button } from 'reactstrap';
 import PlayFabClient from '../../node_modules/playfab-sdk/Scripts/PlayFab/PlayFabClient';
-import uuidv1 from 'uuid/v1';
+import Config from '../config/config.json'
+import shortid from 'shortid';
 
 export default class IdeaInput extends React.Component {
   constructor(props) {
@@ -26,13 +27,8 @@ export default class IdeaInput extends React.Component {
     event.preventDefault();
   }
 
-
-  // createData() {
-  //
-  // }
-
   saveUserData() {
-    const uniqueId = uuidv1();
+    const uniqueId = Config.ideaPrefix + shortid.generate();
     const requestBody = {
       Data: {
         [uniqueId]: this.state.value
