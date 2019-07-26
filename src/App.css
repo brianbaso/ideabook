@@ -91,9 +91,16 @@ p {
   margin: 20px 0 0 20px;
 }
 
+#myPrivateIdeas {
+  color: darkslategrey;
+  font-weight: 400;
+  margin-bottom: 10px;
+}
+
 #libraryContainer {
   margin-left: 15%;
   margin-right: 15%;
+  margin-top: 5vh;
 }
 
 #libraryParentDiv {

@@ -55,6 +55,7 @@ export default class Library extends React.Component {
 
     return (
       <div id="libraryContainer">
+        <h4 id="myPrivateIdeas">My Private Ideas</h4>
         {userIdeas}
       </div>
     );
