@@ -8,7 +8,7 @@ export default class IdeaInput extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      value: ''
+      value: '',
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -31,7 +31,8 @@ export default class IdeaInput extends React.Component {
     const uniqueId = Config.ideaPrefix + shortid.generate();
     const requestBody = {
       Data: {
-        [uniqueId]: this.state.value
+        [uniqueId]: this.state.value,
+        submissionTags: this.props.submissionTags
       },
       Permission: "Private"
     };
@@ -66,6 +67,8 @@ export default class IdeaInput extends React.Component {
   }
 
   render() {
+    // const submissionTags = this.props.submissionTags;
+    // console.log('Here we have our tags', submissionTags);
     return (
       <FormGroup>
         <Form onSubmit={this.handleSubmit}>
