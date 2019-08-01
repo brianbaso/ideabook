@@ -5,6 +5,7 @@
   "dependencies": {
     "axios": "^0.19.0",
     "bootstrap": "^4.3.1",
+    "firebase": "^6.3.3",
     "playfab-sdk": "^2.30.190625",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
