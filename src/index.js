@@ -26,6 +26,16 @@ const firebaseConfig = {
 };
 
 firebase.initializeApp(firebaseConfig);
+let firestore = firebase.firestore();
+
+let aTuringRef = firestore.collection('users').doc('aturing');
+
+let setAlan = aTuringRef.set({
+  'first': 'Alan',
+  'middle': 'Mathison',
+  'last': 'Turing',
+  'born': 1912
+});
 
 let testUser = "brianl@gmail.com";
 let testPassword = "Testpassword123!"
