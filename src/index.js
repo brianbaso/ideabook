@@ -27,14 +27,24 @@ const firebaseConfig = {
 
 firebase.initializeApp(firebaseConfig);
 
-let testUser = "brianb3769@gmail.com";
+let testUser = "brianl@gmail.com";
 let testPassword = "Testpassword123!"
 
-firebase.auth().createUserWithEmailAndPassword(testUser, testPassword).catch(function(error) {
+// firebase.auth().createUserWithEmailAndPassword(testUser, testPassword).then((response) => {
+//   console.log(testUser, 'successfully created.');
+// }).catch((error) => {
+//   if (error !== null) {
+//     console.log('ERROR:', error.code, '-', error.message);
+//   }
+// })
+
+firebase.auth().signInWithEmailAndPassword(testUser, testPassword).then((response) => {
+  console.log(testUser, 'successfully signed in.');
+}).catch((error) => {
   if (error !== null) {
-    console.log('ERROR: ', error.code, ' - ', error.message);
+    console.log('ERROR:', error.code, '-', error.message);
   }
-});
+})
 
 PlayFabClient.settings.titleId = Config.playFabTitleId;
 
