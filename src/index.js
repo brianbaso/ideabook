@@ -25,6 +25,17 @@ const firebaseConfig = {
   appId: "1:130609407519:web:9efbaf033c8eb6b5"
 };
 
+firebase.initializeApp(firebaseConfig);
+
+let testUser = "brianb3769@gmail.com";
+let testPassword = "Testpassword123!"
+
+firebase.auth().createUserWithEmailAndPassword(testUser, testPassword).catch(function(error) {
+  if (error !== null) {
+    console.log('ERROR: ', error.code, ' - ', error.message);
+  }
+});
+
 PlayFabClient.settings.titleId = Config.playFabTitleId;
 
 function doLoginWithCustomId() {
@@ -56,8 +67,9 @@ export default function compileErrorReport(error) {
   return fullErrors;
 }
 
-doLoginWithCustomId();
-firebase.initializeApp(firebaseConfig);
+// firebase.auth().createUserWithEmailAndPassword(testUser, testPassword);
+
+// doLoginWithCustomId();
 ReactDOM.render(<App/>, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
