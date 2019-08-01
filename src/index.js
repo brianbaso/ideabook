@@ -7,6 +7,24 @@ import * as serviceWorker from './serviceWorker';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import PlayFabClient from '../node_modules/playfab-sdk/Scripts/PlayFab/PlayFabClient';
 
+// Firebase App (the core Firebase SDK) is always required and
+// must be listed before other Firebase SDKs
+import * as firebase from "firebase/app";
+
+// Add the Firebase services that you want to use
+import "firebase/auth";
+import "firebase/firestore";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyDc_mawcQi3DNxU8CFxCj0aHCMXfOxFmI8",
+  authDomain: "neuroquery-abb3a.firebaseapp.com",
+  databaseURL: "https://neuroquery-abb3a.firebaseio.com",
+  projectId: "neuroquery-abb3a",
+  storageBucket: "neuroquery-abb3a.appspot.com",
+  messagingSenderId: "130609407519",
+  appId: "1:130609407519:web:9efbaf033c8eb6b5"
+};
+
 PlayFabClient.settings.titleId = Config.playFabTitleId;
 
 function doLoginWithCustomId() {
@@ -39,7 +57,7 @@ export default function compileErrorReport(error) {
 }
 
 doLoginWithCustomId();
-
+firebase.initializeApp(firebaseConfig);
 ReactDOM.render(<App/>, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
