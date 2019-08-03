@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios'
 import { Row, Col, Container } from 'reactstrap';
 import IdeaInput from './IdeaInput.js'
+import * as firebase from "firebase/app";
 
 export default class Hand extends React.Component {
   constructor(props) {
@@ -28,6 +29,19 @@ export default class Hand extends React.Component {
         let hand = this.shuffleDeck(deck);
         this.setState({ hand : hand });
       })
+
+    let db = firebase.firestore();
+
+    db.collection('cards').get()
+      .then((snapshot) => {
+        snapshot.forEach((doc) => {
+          console.log(doc.id, '=>', doc.data());
+        });
+      })
+      .catch((err) => {
+        console.log('Error getting documents', err);
+    });
+
   }
 
   shuffleDeck(deck) {
