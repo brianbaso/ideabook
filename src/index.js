@@ -28,10 +28,10 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 let firestore = firebase.firestore();
 
-let aTuringRef = firestore.collection('users').doc('aturing');
+let aTuringRef = firestore.collection('users').doc('aburing');
 
-let setAlan = aTuringRef.set({
-  'first': 'Alan',
+let setSlan = aTuringRef.set({
+  'first': 'Slan',
   'middle': 'Mathison',
   'last': 'Turing',
   'born': 1912
