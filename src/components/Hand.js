@@ -1,5 +1,4 @@
 import React from 'react';
-import axios from 'axios'
 import { Row, Col, Container } from 'reactstrap';
 import IdeaInput from './IdeaInput.js'
 import * as firebase from "firebase/app";
@@ -23,35 +22,25 @@ export default class Hand extends React.Component {
   }
 
   componentDidMount() {
-    axios.get(`../deck.json`)
-      .then(response => {
-        const deck = response.data[0].cards;
-        let hand = this.shuffleDeck(deck);
-        this.setState({ hand : hand });
-      })
-
     let db = firebase.firestore();
 
     db.collection('cards').get()
       .then((snapshot) => {
         snapshot.forEach((doc) => {
-          console.log(doc.id, '=>', doc.data());
+          const deck = Object.values(doc.data())[0];
+          const hand = this.shuffleDeck(deck);
+          this.setState({ hand : hand });
         });
       })
-      .catch((err) => {
-        console.log('Error getting documents', err);
+      .catch((e) => {
+        console.log('Error getting documents', e);
     });
-
   }
 
   shuffleDeck(deck) {
     const shuffle = deck.sort(() => 0.5 - Math.random());
     let hand = shuffle.slice(0, 8);
     return hand;
-  }
-
-  teaseState(ms) {
-    return new Promise(resolve => setTimeout(resolve, ms));
   }
 
   cardOneClick = (e) => {
