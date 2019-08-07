@@ -1,14 +1,12 @@
 import React from 'react';
 import { Form, FormGroup, Input, Button } from 'reactstrap';
-import PlayFabClient from '../../node_modules/playfab-sdk/Scripts/PlayFab/PlayFabClient';
-import Config from '../config/config.json'
-import shortid from 'shortid';
+import * as firebase from "firebase/app";
 
 export default class IdeaInput extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      value: '',
+      value: ''
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -28,47 +26,24 @@ export default class IdeaInput extends React.Component {
   }
 
   saveUserData() {
-    const uniqueId = Config.ideaPrefix + shortid.generate();
-    const requestBody = {
-      Data: {
-        [uniqueId]: this.state.value,
-        submissionTags: this.props.submissionTags
-      },
-      Permission: "Private"
-    };
+    let db = firebase.firestore();
 
-    try {
-      console.log(requestBody);
-      PlayFabClient.UpdateUserData(requestBody, this.saveUserDataCallback);
-    } catch(e) {
-      this.compileErrorReport(e);
-      console.log(e);
-    }
-  }
-
-  saveUserDataCallback(error, result) {
-    if (result !== null) {
-      console.log('Result', result);
-    } else if (error !== null) {
-      console.log("Something went wrong with your SaveUserData call.");
-      console.log("Here's some debug information:");
-      console.log(this.compileErrorReport(error));
-    }
-  }
-
-  compileErrorReport(error) {
-    if (error == null)
-      return "error is null";
-    let fullErrors = error.errorMessage;
-    for (let paramName in error.errorDetails)
-      for (let msgIdx in error.errorDetails[paramName])
-        fullErrors += "\n" + paramName + ": " + error.errorDetails[paramName][msgIdx];
-    return fullErrors;
+    db.collection("ideas").doc("test").set({
+      content: this.state.value,
+      submissionTags: this.props.submissionTags,
+      roles: {
+        someUserId: "owner"
+      }
+    })
+    .then(() => {
+      console.log("Document successfully written.");
+    })
+    .catch((e) => {
+      console.log("Error writing document: ", e);
+    });
   }
 
   render() {
-    // const submissionTags = this.props.submissionTags;
-    // console.log('Here we have our tags', submissionTags);
     return (
       <FormGroup>
         <Form onSubmit={this.handleSubmit}>
