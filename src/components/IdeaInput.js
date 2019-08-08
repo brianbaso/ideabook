@@ -25,6 +25,25 @@ export default class IdeaInput extends React.Component {
     event.preventDefault();
   }
 
+  /*
+
+  Data modeling
+
+  Users:            users/{userId}
+  Private ideas:    users/{userId}/ideas/{ideaId}
+  Posts:            posts/{postId}
+  Comments:         posts/{postId}/comments/{commentId}
+
+  ---
+
+  Security Rules
+
+  Private ideas:    Only readable by user who created
+  Posts:            Readable by everyone
+  Comments:         Readable by everyone
+
+  */
+
   saveUserData() {
     let db = firebase.firestore();
 
