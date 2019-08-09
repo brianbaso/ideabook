@@ -26,8 +26,8 @@ export default class IdeaInput extends React.Component {
   }
 
   saveUserData() {
-    const db = firebase.firestore();
     const user = firebase.auth().currentUser.uid;
+    const db = firebase.firestore();
     const dbRef = db.collection("users").doc(user).collection("private-ideas");
 
     dbRef.add({

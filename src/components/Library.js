@@ -1,34 +1,33 @@
 import React from 'react';
 import { Toast, ToastBody, ToastHeader } from 'reactstrap';
-import Config from '../config/config.json'
-import PlayFabClient from '../../node_modules/playfab-sdk/Scripts/PlayFab/PlayFabClient';
+import * as firebase from "firebase/app";
 
 export default class Library extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      userData: {}
+      ideas: []
     };
   }
 
   componentDidMount() {
-    const requestBody = {
-      Data: {
-        PlayFabId: Config.testPlayerTitleId,
-      }
-    };
+    const user = firebase.auth().currentUser.uid;
+    const db = firebase.firestore();
+    const dbRef = db.collection("users").doc(user)
+      .collection("private-ideas");
+    let ideas = [];
 
-    PlayFabClient.GetUserData(requestBody, (error, result) => {
-      if (result !== null) {
-        this.setState({ userData: result.data.Data });
-        console.log('User data state', this.state.userData);
-      } else if (error !== null) {
-        console.log("Something went wrong with your GetUserData call.");
-        console.log("Here's some debug information:");
-        // console.log(ErrorHandlers.compileErrorReport(error));
-      }
-    });
+    dbRef.get()
+      .then((snapshot) => {
+        snapshot.forEach(doc => {
+          ideas.push(doc.data());
+        });
+        this.setState({ ideas : ideas });
+      })
+      .catch((e) => {
+        console.log('Error getting documents', e);
+      });
   }
 
   render() {
