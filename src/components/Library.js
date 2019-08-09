@@ -1,5 +1,5 @@
 import React from 'react';
-import { Toast, ToastBody, ToastHeader, Container } from 'reactstrap';
+import { Toast, ToastBody, ToastHeader } from 'reactstrap';
 import Config from '../config/config.json'
 import ErrorHandlers from '../index.js'
 import PlayFabClient from '../../node_modules/playfab-sdk/Scripts/PlayFab/PlayFabClient';

@@ -42,12 +42,16 @@ export default class IdeaInput extends React.Component {
   Posts:            Readable by everyone
   Comments:         Readable by everyone
 
+  Pseudo-code: allow write if: restaurant.roles[userId] = "editor"
+
   */
 
   saveUserData() {
     let db = firebase.firestore();
+    let user = firebase.auth().currentUser.uid;
 
-    db.collection("ideas").doc("test").set({
+    db.collection("users").doc(user)
+    .collection("private-ideas").add({
       content: this.state.value,
       submissionTags: this.props.submissionTags,
       roles: {
