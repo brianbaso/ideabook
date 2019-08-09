@@ -5,6 +5,27 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+/*
+
+Data modeling
+
+Users:            users/{userId}
+Private ideas:    users/{userId}/ideas/{ideaId}
+Posts:            posts/{postId}
+Comments:         posts/{postId}/comments/{commentId}
+
+---
+
+Security Rules
+
+Private ideas:    Only readable by user who created
+Posts:            Readable by everyone
+Comments:         Readable by everyone
+
+Pseudo-code: allow write if: restaurant.roles[userId] = "editor"
+
+*/
+
 // Firebase App (the core Firebase SDK) is always required and
 // must be listed before other Firebase SDKs
 import * as firebase from "firebase/app";

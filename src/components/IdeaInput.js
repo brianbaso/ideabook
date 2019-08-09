@@ -25,33 +25,12 @@ export default class IdeaInput extends React.Component {
     event.preventDefault();
   }
 
-  /*
-
-  Data modeling
-
-  Users:            users/{userId}
-  Private ideas:    users/{userId}/ideas/{ideaId}
-  Posts:            posts/{postId}
-  Comments:         posts/{postId}/comments/{commentId}
-
-  ---
-
-  Security Rules
-
-  Private ideas:    Only readable by user who created
-  Posts:            Readable by everyone
-  Comments:         Readable by everyone
-
-  Pseudo-code: allow write if: restaurant.roles[userId] = "editor"
-
-  */
-
   saveUserData() {
-    let db = firebase.firestore();
-    let user = firebase.auth().currentUser.uid;
+    const db = firebase.firestore();
+    const user = firebase.auth().currentUser.uid;
+    const dbRef = db.collection("users").doc(user).collection("private-ideas");
 
-    db.collection("users").doc(user)
-    .collection("private-ideas").add({
+    dbRef.add({
       content: this.state.value,
       submissionTags: this.props.submissionTags,
       roles: {
