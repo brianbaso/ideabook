@@ -1,7 +1,6 @@
 import React from 'react';
 import { Toast, ToastBody, ToastHeader } from 'reactstrap';
 import Config from '../config/config.json'
-import ErrorHandlers from '../index.js'
 import PlayFabClient from '../../node_modules/playfab-sdk/Scripts/PlayFab/PlayFabClient';
 
 export default class Library extends React.Component {
@@ -27,7 +26,7 @@ export default class Library extends React.Component {
       } else if (error !== null) {
         console.log("Something went wrong with your GetUserData call.");
         console.log("Here's some debug information:");
-        console.log(ErrorHandlers.compileErrorReport(error));
+        // console.log(ErrorHandlers.compileErrorReport(error));
       }
     });
   }

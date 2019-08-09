@@ -55,7 +55,7 @@ export default class IdeaInput extends React.Component {
       content: this.state.value,
       submissionTags: this.props.submissionTags,
       roles: {
-        userId: "owner"
+        [user]: "owner"
       }
     })
     .then(() => {

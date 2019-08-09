@@ -2,10 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import Config from './config/config.json'
 import * as serviceWorker from './serviceWorker';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import PlayFabClient from '../node_modules/playfab-sdk/Scripts/PlayFab/PlayFabClient';
 
 // Firebase App (the core Firebase SDK) is always required and
 // must be listed before other Firebase SDKs
@@ -26,7 +24,7 @@ const firebaseConfig = {
 };
 
 firebase.initializeApp(firebaseConfig);
-let firestore = firebase.firestore();
+// let firestore = firebase.firestore();
 
 let testUser = "brianl@gmail.com";
 let testPassword = "Testpassword123!"
@@ -47,40 +45,7 @@ firebase.auth().signInWithEmailAndPassword(testUser, testPassword).then((respons
   }
 })
 
-PlayFabClient.settings.titleId = Config.playFabTitleId;
-
-function doLoginWithCustomId() {
-  var loginRequest = {
-    TitleId: Config.playFabTitleId,
-    CustomId: Config.testPlayerCustomId
-  };
-
-  PlayFabClient.LoginWithCustomID(loginRequest, loginCallback);
-}
-
-function loginCallback(error, result) {
-    if (result !== null) {
-        console.log("Successfully logged in.");
-    } else if (error !== null) {
-        console.log("Something went wrong with your first API call.");
-        console.log("Here's some debug information:");
-        console.log(compileErrorReport(error));
-    }
-}
-
-export default function compileErrorReport(error) {
-  if (error == null)
-    return "";
-  let fullErrors = error.errorMessage;
-  for (let paramName in error.errorDetails)
-    for (let msgIdx in error.errorDetails[paramName])
-      fullErrors += "\n" + paramName + ": " + error.errorDetails[paramName][msgIdx];
-  return fullErrors;
-}
-
 // firebase.auth().createUserWithEmailAndPassword(testUser, testPassword);
-
-// doLoginWithCustomId();
 ReactDOM.render(<App/>, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
