@@ -9,6 +9,8 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import Library from './Library.js';
 import Community from './Community.js';
 import Hand from './Hand.js';
+import Signup from './Signup.js'
+import Login from './Login.js'
 import logo from '../img/neuroquery-logo.svg';
 import loginButton from '../img/login-button.png';
 import signupButton from '../img/signup-button.png';
@@ -28,13 +30,13 @@ export default class Navigation extends React.Component {
                   <Link to="/game/" className="navbar-text">Game</Link>
                 </NavItem>
                 <NavItem>
-                  <NavLink className="navbar-buttons-parent-left" href="https://github.com/reactstrap/reactstrap">
-                    <img className="navbar-buttons" alt="Log In" src={loginButton}/>
+                  <NavLink className="navbar-buttons-parent-left">
+                    <Link to="/login/"><img className="navbar-buttons" alt="Log In" src={loginButton}/></Link>
                   </NavLink>
                 </NavItem>
                 <NavItem>
-                  <NavLink className="navbar-buttons-parent-right" href="https://github.com/reactstrap/reactstrap">
-                    <img className="navbar-buttons" alt="Sign up" src={signupButton}/>
+                  <NavLink className="navbar-buttons-parent-right">
+                    <Link to="/signup/"><img className="navbar-buttons" alt="Sign up" src={signupButton}/></Link>
                   </NavLink>
                 </NavItem>
               </Nav>
