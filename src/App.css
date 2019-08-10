@@ -27,10 +27,12 @@ p {
 
 .navbar-buttons-parent-left {
   padding-right: 4px !important;
+  padding-top: 7px;
 }
 
 .navbar-buttons-parent-right {
   padding-left: 4px !important;
+  padding-top: 7px;
 }
 
 .Card {
@@ -118,4 +120,9 @@ p {
 
 #libraryBodyToast {
 
+}
+
+#login-background {
+  background-image: url('./img/login-background.png');
+  height: 679px;
 }

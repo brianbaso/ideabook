@@ -29,15 +29,11 @@ export default class Navigation extends React.Component {
                 <NavItem className="navbar-text-buttons">
                   <Link to="/game/" className="navbar-text">Game</Link>
                 </NavItem>
-                <NavItem>
-                  <NavLink className="navbar-buttons-parent-left">
-                    <Link to="/login/"><img className="navbar-buttons" alt="Log In" src={loginButton}/></Link>
-                  </NavLink>
+                <NavItem className="navbar-buttons-parent-left">
+                  <Link to="/login/"><img className="navbar-buttons" alt="Log In" src={loginButton}/></Link>
                 </NavItem>
-                <NavItem>
-                  <NavLink className="navbar-buttons-parent-right">
-                    <Link to="/signup/"><img className="navbar-buttons" alt="Sign up" src={signupButton}/></Link>
-                  </NavLink>
+                <NavItem className="navbar-buttons-parent-right">
+                  <Link to="/signup/"><img className="navbar-buttons" alt="Sign up" src={signupButton}/></Link>
                 </NavItem>
               </Nav>
           </Navbar>
