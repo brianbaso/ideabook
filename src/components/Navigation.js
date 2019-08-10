@@ -43,6 +43,8 @@ export default class Navigation extends React.Component {
           <Route exact path="/" component={Community}/>
           <Route path="/game/" component={Hand}/>
           <Route path="/library/" component={Library}/>
+          <Route path="/signup/" component={Signup}/>
+          <Route path="/login/" component={Login}/>
         </div>
       </Router>
     );
