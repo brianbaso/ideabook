@@ -13,7 +13,7 @@ import logo from '../img/neuroquery-logo.svg';
 import loginButton from '../img/login-button.png';
 import signupButton from '../img/signup-button.png';
 
-export default class NavBar extends React.Component {
+export default class Navigation extends React.Component {
   render() {
     return (
       <Router>
