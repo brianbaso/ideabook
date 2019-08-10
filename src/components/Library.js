@@ -31,30 +31,28 @@ export default class Library extends React.Component {
   }
 
   render() {
-    const userIdeas = [];
+    const libraryCards = [];
 
-    for (let key in this.state.userData) {
-      if (this.state.userData.hasOwnProperty(key)) {
-        userIdeas.push(
-          <div className="my-2 rounded" id="libraryParentDiv">
-            <Toast id="libraryParentToast">
-              <ToastHeader id="libraryHeaderToast">
-                {key}
-              </ToastHeader>
-              <ToastBody id="libraryBodyToast">
-                {this.state.userData[key].Value}
-              </ToastBody>
-            </Toast>
-          </div>
-        );
-      }
-      console.log('User ideas:', userIdeas);
-    }
+    this.state.ideas.forEach((idea, i) => {
+      libraryCards.push(
+        <div className="my-2 rounded" key={i} id="libraryParentDiv">
+          <Toast id="libraryParentToast">
+            <ToastHeader id="libraryHeaderToast">
+              {idea.submissionTags[0]}
+              {idea.submissionTags[1]}
+            </ToastHeader>
+            <ToastBody id="libraryBodyToast">
+              {idea.content}
+            </ToastBody>
+          </Toast>
+        </div>
+      );
+    });
 
     return (
       <div id="libraryContainer">
         <h4 id="myPrivateIdeas">My Private Ideas</h4>
-        {userIdeas}
+        {libraryCards}
       </div>
     );
   }
