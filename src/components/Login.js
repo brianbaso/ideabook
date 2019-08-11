@@ -6,7 +6,8 @@ import {
   Input,
   Col
 } from 'reactstrap';
-import title from '../img/neuroquery-login-title.png';
+import title from '../img/neuroquery-login-title.svg';
+import loginImage from '../img/login-image.svg'
 
 export default class Login extends React.Component {
   constructor(props) {
@@ -20,9 +21,9 @@ export default class Login extends React.Component {
   render() {
     return (
       <Col sm="12" md={{ size: 8, offset: 4 }} id="login-container">
-        <Col xs="12" sm="5" id="login-container-left-child">
+        <Col xs="12" sm="4" id="login-container-left-child">
           <div>
-            <img className="login-title" alt="Neuroquery" src={title}/>
+            <img id="login-title" alt="Neuroquery" src={title}/>
           </div>
           <Form id="login-form">
             <FormGroup col>
@@ -39,7 +40,9 @@ export default class Login extends React.Component {
             </FormGroup>
           </Form>
         </Col>
-        <Col xs="0" sm="7" id="login-container-right-child"/>
+        <Col xs="0" sm="8" id="login-container-right-child">
+          <img id="login-image" alt="rapid-fire ideation" src={loginImage}/>
+        </Col>
       </Col>
     );
   }
