@@ -35,7 +35,7 @@ export default class Login extends React.Component {
             <FormGroup col>
               <Label for="examplePassword" sm={2} id="login-form-children">Password</Label>
               <Col sm={5} id="login-form-children">
-                <Input type="password" name="password" id="examplePassword" placeholder="Enter your password" />
+                <Input id="login-input" type="password" name="password" id="examplePassword" placeholder="Enter your password" />
               </Col>
             </FormGroup>
           </Form>
