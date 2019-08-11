@@ -20,8 +20,8 @@ export default class Login extends React.Component {
 
   render() {
     return (
-      <Col sm="12" md={{ size: 8, offset: 4 }} id="login-container">
-        <Col xs="12" sm="4" id="login-container-left-child">
+      <Col sm="11" md={{ size: 8, offset: 4 }} id="login-container">
+        <Col xs="12" sm="5" id="login-container-left-child">
           <div>
             <img id="login-title" alt="Neuroquery" src={title}/>
           </div>
