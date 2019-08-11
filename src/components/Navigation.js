@@ -2,8 +2,7 @@ import React from 'react';
 import {
   Navbar,
   Nav,
-  NavItem,
-  NavLink
+  NavItem
  } from 'reactstrap';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import Library from './Library.js';
