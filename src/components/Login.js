@@ -54,9 +54,13 @@ export default class Login extends React.Component {
             <Button id="login-signin-button">
                  Sign in your account
             </Button>
+            <Button id="login-signup-button">
+                 Create an account
+            </Button>
+            <Link to="/login/"><p id="forgot-password">Forgot your password?</p></Link>
           </div>
         </Col>
-        <Col xs="0" sm="8" id="login-container-right-child">
+        <Col xs="0" sm="7" id="login-container-right-child">
           <img id="login-image" alt="rapid-fire ideation" src={loginImage}/>
         </Col>
       </Col>
