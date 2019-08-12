@@ -4,10 +4,15 @@ import {
   FormGroup,
   Label,
   Input,
-  Col
+  Col,
+  Button
 } from 'reactstrap';
+import { Link } from "react-router-dom";
 import title from '../img/neuroquery-login-title.svg';
 import loginImage from '../img/login-image.svg'
+import twitter from '../img/twitter-login.svg'
+import google from '../img/google-login.svg'
+import facebook from '../img/facebook-login.svg'
 
 export default class Login extends React.Component {
   constructor(props) {
@@ -39,6 +44,17 @@ export default class Login extends React.Component {
               </Col>
             </FormGroup>
           </Form>
+          <p id="or-use-text">or use</p>
+          <div id="social-media-logins-parent">
+            <img id="social-media-logins-child" alt="Twitter" src={twitter}/>
+            <img id="social-media-logins-child" alt="Google" src={google}/>
+            <img id="social-media-logins-child" alt="Facebook" src={facebook}/>
+          </div>
+          <div id="login-signin-button-parent">
+            <Button id="login-signin-button">
+                 Sign in your account
+            </Button>
+          </div>
         </Col>
         <Col xs="0" sm="8" id="login-container-right-child">
           <img id="login-image" alt="rapid-fire ideation" src={loginImage}/>

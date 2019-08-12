@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="200px" height="44px" viewBox="0 0 200 44" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 56.3 (81716) - https://sketch.com -->
+    <title>Group 13</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="0%" y1="47.58%" x2="114.858524%" y2="61.1596071%" id="linearGradient-1">
+            <stop stop-color="#FF806D" offset="0%"></stop>
+            <stop stop-color="#FBCB42" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Log-In-Copy-2" transform="translate(-332.000000, -641.000000)">
+            <g id="Group-2" transform="translate(332.000000, 641.000000)">
+                <g id="Group-13">
+                    <rect id="Rectangle" fill="url(#linearGradient-1)" x="0" y="0" width="200" height="44" rx="22"></rect>
+                    <text id="Sign-in-your-account" font-family="SegoeUI-Semibold, Segoe UI" font-size="16" font-weight="500" fill="#FFFFFF">
+                        <tspan x="26" y="28">Sign in your account</tspan>
+                    </text>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

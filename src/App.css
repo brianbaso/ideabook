@@ -1,3 +1,8 @@
+@font-face {
+    font-family: Gravity;
+    src: url("../src/fonts/Gravity-Bold.otf") format("woff"), url("../src/fonts/Gravity-Bold.otf")  format("truetype");
+}
+
 p {
   margin-bottom: 0 !important;
 }
@@ -17,7 +22,7 @@ p {
 }
 
 .navbar-text-buttons {
-  padding-top: 7px;
+  padding-top: 5px;
   padding-right: 10px;
 }
 
@@ -146,13 +151,14 @@ p {
 }
 
 #login-form {
-  margin-left: 7.5%;
+  margin-left: 8.5%;
   padding: 0;
 }
 
 #login-form-children {
   max-width: 90%;
   color: silver;
+  padding-bottom: 3px;
 }
 
 #login-top-row {
@@ -198,4 +204,41 @@ p {
 
 #examplePassword::-ms-input-placeholder {
   color: silver;
+}
+
+.form-control {
+  padding: 1.6rem .75rem !important;
+}
+
+.form-group {
+  margin-bottom: 0 !important;
+}
+
+#or-use-text {
+  text-align: center;
+  padding-top: 5px;
+  color: silver;
+}
+
+#social-media-logins-parent {
+  text-align: center;
+}
+
+#social-media-logins-child {
+  padding: 5px;
+}
+
+#login-signin-button-parent {
+  text-align: center;
+}
+
+#login-signin-button {
+  margin: 20px;
+  padding: .5rem 1.75rem;
+  border-radius: 2rem;
+  border: none;
+  font-weight: 600;
+  font-size: 16px;
+  font-family: Segoe UI;
+  background: linear-gradient(90deg, rgba(255,128,109,1) 0%, rgba(251,203,66,1) 100%);
 }

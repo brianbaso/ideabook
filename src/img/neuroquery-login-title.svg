@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg width="194px" height="28px" viewBox="0 0 194 28" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg width="189px" height="28px" viewBox="0 0 189 28" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <!-- Generator: Sketch 56.3 (81716) - https://sketch.com -->
     <title>neuroquery</title>
     <desc>Created with Sketch.</desc>
     <defs>
-        <linearGradient x1="3.78682801%" y1="47.6178206%" x2="115.280787%" y2="55.2880968%" id="linearGradient-1">
+        <linearGradient x1="3.78682801%" y1="46.8421918%" x2="115.280787%" y2="57.0098815%" id="linearGradient-1">
             <stop stop-color="#FF806D" offset="0%"></stop>
             <stop stop-color="#FBCB42" offset="100%"></stop>
         </linearGradient>
     </defs>
-    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" font-family="Helvetica" font-size="36" font-weight="normal">
-        <g id="Log-In-Copy-2" transform="translate(-296.000000, -340.000000)" fill="url(#linearGradient-1)">
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" font-family="SegoeUI-Semibold, Segoe UI" font-size="36" font-weight="500">
+        <g id="Log-In-Copy-2" transform="translate(-296.000000, -345.000000)" fill="url(#linearGradient-1)">
             <text id="neuroquery">
-                <tspan x="294" y="360">neuroquery</tspan>
+                <tspan x="294" y="364">neuroquery</tspan>
             </text>
         </g>
     </g>
