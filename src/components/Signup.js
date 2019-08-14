@@ -50,7 +50,8 @@ export default class Signup extends React.Component {
   }
 
   handleSubmit(event) {
-
+    this.createAccountEmailAndPassword();
+    event.preventDefault();
   }
 
   createAccountEmailAndPassword() {
@@ -59,6 +60,9 @@ export default class Signup extends React.Component {
     let password = this.state.password;
 
     firebase.auth().createUserWithEmailAndPassword(email, password)
+      .then((res) => {
+        console.log(res);
+      })
       .catch((e) => {
         console.log(e.code, ' : ', e.message);
       });
@@ -71,7 +75,7 @@ export default class Signup extends React.Component {
           <div>
             <img id="login-title" alt="Neuroquery" src={title}/>
           </div>
-          <Form id="login-form">
+          <Form id="login-form" onSubmit={this.handleSubmit}>
             <FormGroup col>
               <Label for="exampleEmail" sm={2} id="login-form-children">Username</Label>
               <Col sm={5} id="login-form-children">
