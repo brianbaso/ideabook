@@ -146,12 +146,12 @@ p {
 }
 
 #login-form {
-  margin-left: 8.5%;
+  margin: 0 8.5%;
   padding: 0;
 }
 
 #login-form-children {
-  max-width: 90%;
+  max-width: 100%;
   color: silver;
   padding-bottom: 3px;
 }
