@@ -177,6 +177,18 @@ p {
   margin-right: 12.5%;
 }
 
+#exampleUsername::placeholder {
+  color: silver;
+}
+
+#exampleUsername:-ms-input-placeholder  {
+  color: silver;
+}
+
+#exampleUsername::-ms-input-placeholder {
+  color: silver;
+}
+
 #exampleEmail::placeholder {
   color: silver;
 }
