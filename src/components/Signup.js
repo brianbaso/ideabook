@@ -61,7 +61,13 @@ export default class Signup extends React.Component {
 
     firebase.auth().createUserWithEmailAndPassword(email, password)
       .then((res) => {
-        console.log(res);
+        let user = firebase.auth().currentUser;
+        if (user != null) {
+          const username = user.displayName;
+          const userEmail = user.email;
+          const isVerified = user.emailVerified;
+          const id = user.uid;
+        }
       })
       .catch((e) => {
         console.log(e.code, ' : ', e.message);
