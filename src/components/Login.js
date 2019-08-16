@@ -23,8 +23,6 @@ export default class Login extends React.Component {
     };
   }
 
-  // work work work
-
   render() {
     return (
       <Col sm="11" md={{ size: 8, offset: 4 }} id="login-container">
@@ -45,22 +43,22 @@ export default class Login extends React.Component {
                 <Input id="login-input" type="password" name="password" id="examplePassword" placeholder="Enter your password" />
               </Col>
             </FormGroup>
+            <p id="or-use-text">or use</p>
+            <div id="social-media-logins-parent">
+              <img id="social-media-logins-child" alt="Twitter" src={twitter}/>
+              <img id="social-media-logins-child" alt="Google" src={google}/>
+              <img id="social-media-logins-child" alt="Facebook" src={facebook}/>
+            </div>
+            <div id="login-signin-button-parent">
+              <Button id="login-signin-button">
+                   Sign in your account
+              </Button>
+              <Button id="login-signup-button">
+                   Create an account
+              </Button>
+              <Link to="/login/"><p id="forgot-password">Forgot your password?</p></Link>
+            </div>
           </Form>
-          <p id="or-use-text">or use</p>
-          <div id="social-media-logins-parent">
-            <img id="social-media-logins-child" alt="Twitter" src={twitter}/>
-            <img id="social-media-logins-child" alt="Google" src={google}/>
-            <img id="social-media-logins-child" alt="Facebook" src={facebook}/>
-          </div>
-          <div id="login-signin-button-parent">
-            <Button id="login-signin-button">
-                 Sign in your account
-            </Button>
-            <Button id="login-signup-button">
-                 Create an account
-            </Button>
-            <Link to="/login/"><p id="forgot-password">Forgot your password?</p></Link>
-          </div>
         </Col>
         <Col xs="0" sm="7" id="login-container-right-child">
           <img id="login-image" alt="rapid-fire ideation" src={loginImage}/>
