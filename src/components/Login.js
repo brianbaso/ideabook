@@ -55,6 +55,7 @@ export default class Login extends React.Component {
       .then(() => {
         firebase.auth().onAuthStateChanged((user) => {
           if (user) {
+            window.location = '/';
             const username = user.displayName;
             const id = user.uid;
             const email = user.email;

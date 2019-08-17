@@ -1,6 +1,7 @@
 import React from 'react';
 import { Toast, ToastBody, ToastHeader } from 'reactstrap';
 import * as firebase from "firebase/app";
+import "firebase/auth"
 
 export default class Library extends React.Component {
   constructor(props) {
@@ -12,23 +13,27 @@ export default class Library extends React.Component {
   }
 
   componentDidMount() {
-    const user = firebase.auth().currentUser.uid;
-    const db = firebase.firestore();
-    const dbRef = db.collection("users").doc(user)
-      .collection("private-ideas");
-    let ideas = [];
+    firebase.auth().onAuthStateChanged((user) => {
+      if (user) {
+        const uid = user.uid;
+        const db = firebase.firestore();
+        const dbRef = db.collection("users").doc(uid)
+          .collection("private-ideas");
+        let ideas = [];
 
-    // Create the ideas array and push the firestore doc id into each element
-    dbRef.get()
-      .then((snapshot) => {
-        snapshot.forEach(doc => {
-          ideas.push({ ...doc.data(), id: doc.id });
-        });
-        this.setState({ ideas : ideas });
-      })
-      .catch((e) => {
-        console.log('Error getting documents', e);
-      });
+        // Create the ideas array and push the firestore doc id into each element
+        dbRef.get()
+          .then((snapshot) => {
+            snapshot.forEach(doc => {
+              ideas.push({ ...doc.data(), id: doc.id });
+            });
+            this.setState({ ideas : ideas });
+          })
+          .catch((e) => {
+            console.log('Error getting documents', e);
+          });
+      }
+    })
   }
 
   render() {
