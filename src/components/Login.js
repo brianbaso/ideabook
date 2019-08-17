@@ -43,7 +43,7 @@ export default class Login extends React.Component {
   }
 
   handleSubmit(event) {
-    this.createAccountEmailAndPassword();
+    this.signInWithEmailAndPassword();
     event.preventDefault();
   }
 
@@ -76,17 +76,20 @@ export default class Login extends React.Component {
           <div>
             <img id="login-title" alt="Neuroquery" src={title}/>
           </div>
-          <Form id="login-form">
+          <Form id="login-form" onSubmit={this.handleSubmit}>
             <FormGroup col>
               <Label for="exampleEmail" sm={2} id="login-form-children">Email</Label>
               <Col sm={5} id="login-form-children">
-                <Input type="email" name="email" id="exampleEmail" placeholder="Enter your email address" />
+                <Input type="email" name="email" id="exampleEmail" placeholder="Enter your email address"
+                 value={this.state.email} onChange={this.handleEmailChange}/>
               </Col>
             </FormGroup>
             <FormGroup col>
               <Label for="examplePassword" sm={2} id="login-form-children">Password</Label>
               <Col sm={5} id="login-form-children">
-                <Input id="login-input" type="password" name="password" id="examplePassword" placeholder="Enter your password" />
+                <Input id="login-input" type="password" name="password" id="examplePassword"
+                 placeholder="Enter your password"
+                 value={this.state.password} onChange={this.handlePasswordChange}/>
               </Col>
             </FormGroup>
             <p id="or-use-text">or use</p>
@@ -96,7 +99,7 @@ export default class Login extends React.Component {
               <img id="social-media-logins-child" alt="Facebook" src={facebook}/>
             </div>
             <div id="login-signin-button-parent">
-              <Button id="login-signin-button">
+              <Button id="login-signin-button" type="submit">
                    Sign in your account
               </Button>
               <Button id="login-signup-button">

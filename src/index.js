@@ -28,11 +28,11 @@ Pseudo-code: allow write if: restaurant.roles[userId] = "editor"
 
 // Firebase App (the core Firebase SDK) is always required and
 // must be listed before other Firebase SDKs
-import * as firebase from "firebase/app";
+import * as firebase from "firebase/app"
 
 // Add the Firebase services that you want to use
-import "firebase/auth";
-import "firebase/firestore";
+import "firebase/auth"
+import "firebase/firestore"
 
 const firebaseConfig = {
   apiKey: "AIzaSyDc_mawcQi3DNxU8CFxCj0aHCMXfOxFmI8",
@@ -47,8 +47,8 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 // let firestore = firebase.firestore();
 
-let testUser = "brianl@gmail.com";
-let testPassword = "Testpassword123!"
+// let testUser = "brianl@gmail.com";
+// let testPassword = "Testpassword123!"
 
 // firebase.auth().createUserWithEmailAndPassword(testUser, testPassword).then((response) => {
 //   console.log(testUser, 'successfully created.');
@@ -58,13 +58,15 @@ let testPassword = "Testpassword123!"
 //   }
 // })
 
-firebase.auth().signInWithEmailAndPassword(testUser, testPassword).then((response) => {
-  console.log(testUser, 'successfully signed in.');
-}).catch((error) => {
-  if (error !== null) {
-    console.log('ERROR:', error.code, '-', error.message);
-  }
-})
+// firebase.auth().signInWithEmailAndPassword(testUser, testPassword)
+//   .then((response) => {
+//     console.log(testUser, 'successfully signed in.');
+//   })
+//   .catch((error) => {
+//     if (error !== null) {
+//       console.log('ERROR:', error.code, '-', error.message);
+//     }
+//   });
 
 // firebase.auth().createUserWithEmailAndPassword(testUser, testPassword);
 ReactDOM.render(<App/>, document.getElementById('root'));
