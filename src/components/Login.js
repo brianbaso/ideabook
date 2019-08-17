@@ -13,14 +13,60 @@ import loginImage from '../img/login-image.svg'
 import twitter from '../img/twitter-login.svg'
 import google from '../img/google-login.svg'
 import facebook from '../img/facebook-login.svg'
+import * as firebase from "firebase/app"
+import "firebase/auth"
 
 export default class Login extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-
+      username: '',
+      password: ''
     };
+
+    this.handleEmailChange = this.handleEmailChange.bind(this);
+    this.handlePasswordChange = this.handlePasswordChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  handleEmailChange(event) {
+    this.setState({
+      email: event.target.value
+    });
+  }
+
+  handlePasswordChange(event) {
+    this.setState({
+      password: event.target.value
+    });
+  }
+
+  handleSubmit(event) {
+    this.createAccountEmailAndPassword();
+    event.preventDefault();
+  }
+
+  signInWithEmailAndPassword() {
+    let email = this.state.email;
+    let password = this.state.password;
+
+    firebase.auth().signInWithEmailAndPassword(email, password)
+      .then(() => {
+        firebase.auth().onAuthStateChanged((user) => {
+          if (user) {
+            const username = user.displayName;
+            const id = user.uid;
+            const email = user.email;
+            console.log('User signed in:', username, id, email);
+          } else {
+            console.log('Unable to sign in user.');
+          }
+        })
+      })
+      .catch((e) => {
+        console.log(e.code, ' : ', e.message);
+      })
   }
 
   render() {
