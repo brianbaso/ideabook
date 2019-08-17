@@ -76,7 +76,7 @@ export default class Signup extends React.Component {
               console.log(e.code, ' : ', e.message);
             });
           }
-        });
+        })
       })
       .catch((e) => {
         console.log(e.code, ' : ', e.message);
