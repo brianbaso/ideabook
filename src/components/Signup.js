@@ -67,10 +67,11 @@ export default class Signup extends React.Component {
               displayName: this.state.username
             })
             .then(() => {
+              window.location = '/';
               const username = user.displayName;
               const id = user.uid;
               const email = user.email;
-              console.log(username, id, email);
+              console.log('User signed up:', username, id, email);
             })
             .catch((e) => {
               console.log(e.code, ' : ', e.message);
