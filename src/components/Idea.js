@@ -12,17 +12,16 @@ export default class Idea extends React.Component {
 
   render() {
     return (
-      <div>
-        <div className="p-3 my-2 rounded">
-          <Toast>
-            <ToastHeader>
-              Reactstrap
-            </ToastHeader>
-            <ToastBody>
-              This is a toast on a white background — check it out!
-            </ToastBody>
-          </Toast>
-        </div>
+      <div className="my-2 rounded" id="libraryParentDiv">
+        <Toast id="libraryParentToast">
+          <ToastHeader id="libraryHeaderToast">
+            {this.props.submissionTags[0]}
+            {this.props.submissionTags[1]}
+          </ToastHeader>
+          <ToastBody id="libraryBodyToast">
+            {this.props.content}
+          </ToastBody>
+        </Toast>
       </div>
     );
   }

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Toast, ToastBody, ToastHeader } from 'reactstrap';
+import Idea from './Idea.js'
 import * as firebase from "firebase/app";
 import "firebase/auth"
 
@@ -42,17 +43,11 @@ export default class Library extends React.Component {
     this.state.ideas.forEach((idea) => {
       console.log(idea);
       libraryCards.push(
-        <div className="my-2 rounded" key={idea.id} id="libraryParentDiv">
-          <Toast id="libraryParentToast">
-            <ToastHeader id="libraryHeaderToast">
-              {idea.submissionTags[0]}
-              {idea.submissionTags[1]}
-            </ToastHeader>
-            <ToastBody id="libraryBodyToast">
-              {idea.content}
-            </ToastBody>
-          </Toast>
-        </div>
+        <Idea
+          key={idea.id}
+          submissionTags={idea.submissionTags}
+          content={idea.content}
+         />
       );
     });
 
