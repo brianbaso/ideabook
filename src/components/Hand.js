@@ -146,7 +146,7 @@ export default class Hand extends React.Component {
           <Row>
             <Col className="Hand-Card Card-5" style={{background: this.state.cardFiveColor}} onClick={this.cardFiveClick}>{cards[4]}</Col>
             <Col></Col>
-            <Col>{ this.state.cardsSelected === 2 ? <IdeaInput submissionTags={this.state.submissionTags} /> : null }</Col>
+            <Col>{ this.state.cardsSelected >= 2 ? <IdeaInput submissionTags={this.state.submissionTags} /> : null }</Col>
             <Col className="Hand-Card Card-6" style={{background: this.state.cardSixColor}} onClick={this.cardSixClick}>{cards[5]}</Col>
           </Row>
           <Row>
