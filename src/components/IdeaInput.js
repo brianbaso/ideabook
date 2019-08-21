@@ -25,6 +25,7 @@ export default class IdeaInput extends React.Component {
     event.preventDefault();
   }
 
+  // zip
   saveUserData() {
     const user = firebase.auth().currentUser.uid;
     const db = firebase.firestore();
