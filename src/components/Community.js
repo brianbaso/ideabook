@@ -1,5 +1,4 @@
 import React from 'react';
-import { Toast, ToastBody, ToastHeader } from 'reactstrap';
 import Idea from './Idea.js'
 import * as firebase from "firebase/app";
 import "firebase/auth"
