@@ -126,6 +126,13 @@ p {
   margin-right: 5px;
 }
 
+#share-button {
+  font-weight: 700;
+  font-size: smaller;
+  color: #6c6e70;
+  margin-top: 5px;
+}
+
 #login-container {
   margin-left: 16.75%;
   margin-right: 16.75%;

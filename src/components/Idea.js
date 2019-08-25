@@ -3,7 +3,8 @@ import {
   Toast,
   ToastBody,
   ToastHeader,
-  Badge
+  Badge,
+  Button
  } from 'reactstrap';
 
 export default class Idea extends React.Component {
@@ -31,7 +32,14 @@ export default class Idea extends React.Component {
             {submissionTags}
           </ToastHeader>
           <ToastBody id="libraryBodyToast">
-            {this.props.content}
+            <div>
+              {this.props.content}
+            </div>
+            <div>
+              <p id="share-button">
+                Share
+              </p>
+            </div>
           </ToastBody>
         </Toast>
       </div>
