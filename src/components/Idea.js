@@ -1,5 +1,10 @@
 import React from 'react';
-import { Toast, ToastBody, ToastHeader } from 'reactstrap';
+import {
+  Toast,
+  ToastBody,
+  ToastHeader,
+  Badge
+ } from 'reactstrap';
 
 export default class Idea extends React.Component {
   constructor(props) {
@@ -11,12 +16,19 @@ export default class Idea extends React.Component {
   }
 
   render() {
+    const submissionTags = [];
+
+    this.props.submissionTags.forEach((tag) => {
+      submissionTags.push(
+        <Badge id="submissionTag" color="primary" outline>{tag}</Badge>
+      );
+    })
+
     return (
       <div className="my-2 rounded" id="libraryParentDiv">
         <Toast id="libraryParentToast">
           <ToastHeader id="libraryHeaderToast">
-            {this.props.submissionTags[0]}
-            {this.props.submissionTags[1]}
+            {submissionTags}
           </ToastHeader>
           <ToastBody id="libraryBodyToast">
             {this.props.content}
