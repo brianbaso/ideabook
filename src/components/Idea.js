@@ -7,7 +7,11 @@ import {
   Button,
   Collapse,
   CardBody,
-  Card
+  Card,
+  FormGroup,
+  Form,
+  Label,
+  Input
  } from 'reactstrap';
  import * as firebase from "firebase/app";
 
@@ -16,7 +20,9 @@ export default class Idea extends React.Component {
     super(props);
 
     this.state = {
-      collapse: false
+      collapse: false,
+      problem: '',
+      solution: ''
     };
 
     this.toggle = this.toggle.bind(this);
@@ -26,15 +32,52 @@ export default class Idea extends React.Component {
     this.setState(state => ({ collapse: !state.collapse }));
   }
 
+  handleProblemChange(event) {
+    this.setState({
+      problem: event.target.value
+    });
+  }
+
+  handleSolutionChange(event) {
+    this.setState({
+      solution: event.target.value
+    });
+  }
+
+  handleSubmit(event) {
+    console.log('Post successfully submitted',
+     this.state.problem, this.state.solution);
+  }
+
   /*
     1. Create forms that show when 'Share' button is clicked
     2. Fill out 'problem' and 'solution' form
     3. Press 'Post'
-    4. Set 'content' and 'submission tags' as variables in createPost scope
+    4. Set 'content' and 'submission tags' of idea selected
+    as variables in createPost scope (or can we access props?)
     5. Create new post and reference new variables + fields from dom
   */
-  // createPost() {
-  // }
+  createPost() {
+    const user = firebase.auth().currentUser.uid;
+    const db = firebase.firestore();
+    const dbRef = db.collection("posts");
+
+    dbRef.add({
+      content: this.props.content,
+      submissionTags: this.props.submissionTags,
+      problem: this.state.problem,
+      solution: this.state.solution,
+      roles: {
+        [user]: "owner"
+      }
+    })
+    .then(()) => {
+      console.log("Post successfully created")
+    })
+    .catch((e) => {
+      console.log("Error creating post: ", e);
+    });
+  }
 
   render() {
     const submissionTags = [];
@@ -62,7 +105,24 @@ export default class Idea extends React.Component {
               <Collapse isOpen={this.state.collapse}>
                 <Card>
                   <CardBody>
-                    Sample text
+                    <FormGroup>
+                      <Form onSubmit={this.handleSubmit}>
+                        <Label for="exampleText">
+                          What's the problem you're solving?
+                        </Label>
+                        <Input type="textarea" name="text" id="problemText"
+                         placeholder="Enter the problem"
+                         value={this.state.problem} onChange={this.handleProblemChange}/>
+                        <Label for="exampleText">
+                          What's the solution?
+                        </Label>
+                        <Input type="textarea" name="text" id="solutionText"
+                         placeholder="Enter the solution"
+                         value={this.state.solution} onChange={this.handleSolutionChange}/>
+                         <Button id="postButton" color="primary" type="submit"
+                          outline>Post</Button>
+                      </Form>
+                    </FormGroup>
                   </CardBody>
                 </Card>
               </Collapse>

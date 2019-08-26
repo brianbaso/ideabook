@@ -20,7 +20,7 @@ export default class IdeaInput extends React.Component {
   }
 
   handleSubmit(event) {
-    console.log('Form successfully submitted', this.state.value);
+    console.log('Private idea successfully submitted', this.state.value);
     this.saveUserData();
     event.preventDefault();
   }
