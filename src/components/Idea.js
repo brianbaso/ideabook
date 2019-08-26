@@ -26,6 +26,10 @@ export default class Idea extends React.Component {
     };
 
     this.toggle = this.toggle.bind(this);
+    this.handleProblemChange = this.handleProblemChange.bind(this);
+    this.handleSolutionChange = this.handleSolutionChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.createPost = this.createPost.bind(this);
   }
 
   toggle() {
@@ -45,8 +49,11 @@ export default class Idea extends React.Component {
   }
 
   handleSubmit(event) {
-    console.log('Post successfully submitted',
-     this.state.problem, this.state.solution);
+    // debugger;
+    // console.log('Post successfully submitted',
+    //  this.state.problem, this.state.solution);
+     this.createPost();
+     event.preventDefault();
   }
 
   /*
@@ -71,8 +78,8 @@ export default class Idea extends React.Component {
         [user]: "owner"
       }
     })
-    .then(()) => {
-      console.log("Post successfully created")
+    .then(() => {
+      console.log("Post successfully created");
     })
     .catch((e) => {
       console.log("Error creating post: ", e);
@@ -84,7 +91,7 @@ export default class Idea extends React.Component {
 
     this.props.submissionTags.forEach((tag) => {
       submissionTags.push(
-        <Badge id="submissionTag" color="primary" outline>{tag}</Badge>
+        <Badge id="submissionTag" color="primary">{tag}</Badge>
       );
     })
 
