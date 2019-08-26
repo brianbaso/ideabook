@@ -133,6 +133,10 @@ p {
   margin-top: 5px;
 }
 
+#share-button:hover {
+  cursor: pointer;
+}
+
 #login-container {
   margin-left: 16.75%;
   margin-right: 16.75%;

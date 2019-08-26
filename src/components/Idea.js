@@ -4,17 +4,37 @@ import {
   ToastBody,
   ToastHeader,
   Badge,
-  Button
+  Button,
+  Collapse,
+  CardBody,
+  Card
  } from 'reactstrap';
+ import * as firebase from "firebase/app";
 
 export default class Idea extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-
+      collapse: false
     };
+
+    this.toggle = this.toggle.bind(this);
   }
+
+  toggle() {
+    this.setState(state => ({ collapse: !state.collapse }));
+  }
+
+  /*
+    1. Create forms that show when 'Share' button is clicked
+    2. Fill out 'problem' and 'solution' form
+    3. Press 'Post'
+    4. Set 'content' and 'submission tags' as variables in createPost scope
+    5. Create new post and reference new variables + fields from dom
+  */
+  // createPost() {
+  // }
 
   render() {
     const submissionTags = [];
@@ -36,9 +56,16 @@ export default class Idea extends React.Component {
               {this.props.content}
             </div>
             <div>
-              <p id="share-button">
+              <p id="share-button" onClick={this.toggle}>
                 Share
               </p>
+              <Collapse isOpen={this.state.collapse}>
+                <Card>
+                  <CardBody>
+                    Sample text
+                  </CardBody>
+                </Card>
+              </Collapse>
             </div>
           </ToastBody>
         </Toast>
