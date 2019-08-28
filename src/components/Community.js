@@ -1,5 +1,5 @@
 import React from 'react';
-import Idea from './Idea.js'
+import IdeaPreview from './IdeaPreview.js'
 import * as firebase from "firebase/app";
 import "firebase/auth"
 
@@ -36,7 +36,7 @@ export default class Community extends React.Component {
     this.state.ideas.forEach((idea) => {
       console.log(idea);
       libraryCards.push(
-        <Idea
+        <IdeaPreview
           key={idea.id}
           submissionTags={idea.submissionTags}
           content={idea.content}
