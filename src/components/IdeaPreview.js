@@ -14,6 +14,8 @@ import {
   Input
  } from 'reactstrap';
  import * as firebase from "firebase/app";
+ import Idea from './Idea.js'
+ import { Router, Route, Link } from 'react-router-dom'
 
 export default class IdeaPreview extends React.Component {
   constructor(props) {
@@ -103,7 +105,7 @@ export default class IdeaPreview extends React.Component {
           </ToastHeader>
           <ToastBody id="libraryBodyToast">
             <div>
-              {this.props.content}
+              <Link to={`/post/${this.props.id}`}>{this.props.content}</Link>
             </div>
             <div>
               <p id="share-button" onClick={this.toggle}>

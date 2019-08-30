@@ -38,6 +38,7 @@ export default class Community extends React.Component {
       libraryCards.push(
         <IdeaPreview
           key={idea.id}
+          id={idea.id}
           submissionTags={idea.submissionTags}
           content={idea.content}
          />
