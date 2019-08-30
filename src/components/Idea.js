@@ -15,7 +15,7 @@ import {
  } from 'reactstrap';
  import * as firebase from "firebase/app";
 
-export default class Idea extends React.Component {
+export default class IdeaPreview extends React.Component {
   constructor(props) {
     super(props);
 

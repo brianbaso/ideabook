@@ -105,7 +105,17 @@ export default class IdeaPreview extends React.Component {
           </ToastHeader>
           <ToastBody id="libraryBodyToast">
             <div>
-              <Link to={`/post/${this.props.id}`}>{this.props.content}</Link>
+              <Link to={{
+                pathname: `/post/${this.props.id}`,
+                state: {
+                  submissionTags: this.props.submissionTags,
+                  content: this.props.content,
+                  problem: this.props.problem,
+                  solution: this.props.solution
+                }
+              }}>
+                {this.props.content}
+              </Link>
             </div>
             <div>
               <p id="share-button" onClick={this.toggle}>
