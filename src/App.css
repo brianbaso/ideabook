@@ -308,3 +308,26 @@ p {
   background: transparent;
   color: rgba(255,128,109,1);
 }
+
+/* Post Styles */
+#post-subtitle-text {
+  margin-bottom: 7.5px;
+}
+
+#prob-sol-title {
+  color: #49636B;
+  opacity: 0.75;
+  font-weight: 500;
+  padding: 7.5px;
+}
+
+#prob-sol-text {
+  padding: 0 7.5px 7.5px 7.5px;
+  font-weight: 600;
+  font-size: medium;
+  color: #49636B;
+}
+
+#post-submission-tags {
+  padding: 7.5px;
+}
