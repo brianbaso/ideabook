@@ -1,5 +1,5 @@
 import React from 'react';
-import IdeaPreview from './IdeaPreview.js'
+import PrivateIdeaPreview from './PrivateIdeaPreview.js'
 import * as firebase from "firebase/app";
 import "firebase/auth"
 
@@ -42,7 +42,7 @@ export default class Library extends React.Component {
     this.state.ideas.forEach((idea) => {
       console.log(idea);
       libraryCards.push(
-        <IdeaPreview
+        <PrivateIdeaPreview
           key={idea.id}
           submissionTags={idea.submissionTags}
           content={idea.content}

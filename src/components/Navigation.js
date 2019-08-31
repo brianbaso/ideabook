@@ -10,7 +10,7 @@ import Community from './Community.js';
 import Hand from './Hand.js';
 import Signup from './Signup.js'
 import Login from './Login.js'
-import Idea from './Idea.js'
+import Post from './Post.js'
 import logo from '../img/neuroquery-logo.svg';
 import loginButton from '../img/login-button.png';
 import signupButton from '../img/signup-button.png';
@@ -43,7 +43,7 @@ export default class Navigation extends React.Component {
           <Route path="/library/" component={Library}/>
           <Route path="/signup/" component={Signup}/>
           <Route path="/login/" component={Login}/>
-          <Route path='/post/:id' component={Idea}/>
+          <Route path="/post/:id" component={Post}/>
         </div>
       </Router>
     );
