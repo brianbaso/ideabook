@@ -108,6 +108,7 @@ export default class PostPreview extends React.Component {
               <Link to={{
                 pathname: `/post/${this.props.id}`,
                 state: {
+                  id: this.props.id,
                   submissionTags: this.props.submissionTags,
                   content: this.props.content,
                   problem: this.props.problem,
