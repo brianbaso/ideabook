@@ -20,8 +20,44 @@ export default class Post extends React.Component {
     super(props);
 
     this.state = {
-
+      value: ''
     };
+
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  handleChange(event) {
+    this.setState({
+      value: event.target.value
+    });
+  }
+
+  handleSubmit(event) {
+    console.log('Comment successfully submitted', this.state.value);
+    this.saveComment();
+    event.preventDefault();
+  }
+
+  saveComment() {
+    const user = firebase.auth().currentUser.uid;
+    const db = firebase.firestore();
+    const dbRef = db.collection("posts").doc(user);
+
+    dbRef.update({
+      comments: db.FieldValue.arrayUnion({
+        comment: this.state.value,
+        roles: {
+          [user]: "owner"
+        }
+      })
+    })
+    .then(() => {
+      console.log("Document successfully written.");
+    })
+    .catch((e) => {
+      console.log("Error writing document: ", e);
+    });
   }
 
   render() {
@@ -59,6 +95,13 @@ export default class Post extends React.Component {
                 {tags}
               </div>
             </ToastBody>
+            <FormGroup>
+              <Form onSubmit={this.handleSubmit}>
+                <Input type="text" placeholder="Leave your comment here..."
+                value={this.state.value} onChange={this.handleChange} />
+                <Button color="primary" type="submit">Post Comment</Button>
+              </Form>
+            </FormGroup>
           </Toast>
         </div>
       </div>
