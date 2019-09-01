@@ -60,6 +60,21 @@ export default class Post extends React.Component {
     });
   }
 
+  componentDidMount() {
+    let routeState;
+
+    if (this.props.location.state) {
+      console.log('routeState', this.props.location.state);
+      localStorage.setItem('routeState', JSON.stringify(this.props.location.state));
+      routeState = this.props.location.state;
+    } else {
+      routeState = localStorage.getItem('routeState');
+      if (routeState) {
+        routeState = JSON.parse(routeState);
+      }
+    }
+  }
+
   render() {
     const content = this.props.location.state.content;
     const problem = this.props.location.state.problem;
