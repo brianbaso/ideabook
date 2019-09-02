@@ -14,7 +14,6 @@ import {
   Input
  } from 'reactstrap';
  import * as firebase from "firebase/app";
-const admin = require('firebase-admin');
 const shortid = require('shortid');
 
 export default class Post extends React.Component {
@@ -27,7 +26,8 @@ export default class Post extends React.Component {
       content: '',
       submissionTags: [],
       problem: '',
-      solution: ''
+      solution: '',
+      comments: {}
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -51,7 +51,8 @@ export default class Post extends React.Component {
           content: data.content,
           submissionTags: data.submissionTags,
           problem: data.problem,
-          solution: data.solution
+          solution: data.solution,
+          comments: data.comments
         });
       })
       .catch((e) => {
@@ -97,10 +98,19 @@ export default class Post extends React.Component {
 
   render() {
     const tags = [];
+    const comments = [];
 
     this.state.submissionTags.forEach((tag) => {
       tags.push(
         <Badge id="submissionTag" color="primary">{tag}</Badge>
+      );
+    })
+
+    Object.keys(this.state.comments).map((comment) => {
+      comments.push(
+        <div id="post-comment">
+          <p id="prob-sol-text">{this.state.comments[comment].text}</p>
+        </div>
       );
     })
 
@@ -134,6 +144,11 @@ export default class Post extends React.Component {
               <Button id="post-comment-button" color="primary" type="submit">COMMENT</Button>
             </Form>
           </FormGroup>
+          <Toast id="libraryParentToast">
+            <ToastBody id="libraryBodyToast">
+              {comments}
+            </ToastBody>
+          </Toast>
         </div>
       </div>
     );
