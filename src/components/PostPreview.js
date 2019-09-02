@@ -105,16 +105,7 @@ export default class PostPreview extends React.Component {
           </ToastHeader>
           <ToastBody id="libraryBodyToast">
             <div>
-              <Link to={{
-                pathname: `/post/${this.props.id}`,
-                state: {
-                  id: this.props.id,
-                  submissionTags: this.props.submissionTags,
-                  content: this.props.content,
-                  problem: this.props.problem,
-                  solution: this.props.solution
-                }
-              }}>
+              <Link to={{ pathname: `/post/${this.props.id}` }}>
                 {this.props.content}
               </Link>
             </div>

@@ -23,7 +23,7 @@ export default class Post extends React.Component {
 
     this.state = {
       value: '',
-      id: '',
+      postId: '',
       content: '',
       submissionTags: [],
       problem: '',
@@ -36,38 +36,27 @@ export default class Post extends React.Component {
   }
 
   componentDidMount() {
-    let routeState;
+    const url = window.location.pathname.split('/');
+    const postId = url[2];
+    const db = firebase.firestore();
+    const dbRef = db.collection("posts").doc(postId);
 
-    // In order for this.props.location.state to persist after page refresh
-    // for example, refreshing after a comment is submit
-    // save this.props.location.state to localStorage so that it persists
-    if (this.props.location.state) {
-      console.log('routeState', this.props.location.state);
-      localStorage.setItem('routeState', JSON.stringify(this.props.location.state));
-      routeState = this.props.location.state;
+    dbRef.get()
+      .then((doc) => {
+        let data = doc.data();
+        console.log(data);
 
-      this.setState({
-        id: routeState.id,
-        content: routeState.content,
-        submissionTags: routeState.submissionTags,
-        problem: routeState.problem,
-        solution: routeState.solution,
+        this.setState({
+          postId: postId,
+          content: data.content,
+          submissionTags: data.submissionTags,
+          problem: data.problem,
+          solution: data.solution
+        });
+      })
+      .catch((e) => {
+        console.log('Error getting documents... does this even work?', e);
       });
-
-    } else {
-      routeState = localStorage.getItem('routeState');
-      if (routeState) {
-        routeState = JSON.parse(routeState);
-      }
-
-      this.setState({
-        id: routeState.id,
-        content: routeState.content,
-        submissionTags: routeState.submissionTags,
-        problem: routeState.problem,
-        solution: routeState.solution,
-      });
-    }
   }
 
   handleChange(event) {
@@ -85,7 +74,7 @@ export default class Post extends React.Component {
   saveComment() {
     const user = firebase.auth().currentUser.uid;
     const db = firebase.firestore();
-    const dbRef = db.collection("posts").doc(this.state.id);
+    const dbRef = db.collection("posts").doc(this.state.postId);
     const id = shortid.generate();
 
     dbRef.set({
