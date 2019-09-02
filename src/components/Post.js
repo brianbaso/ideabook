@@ -88,13 +88,6 @@ export default class Post extends React.Component {
     const dbRef = db.collection("posts").doc(this.state.id);
     const id = shortid.generate();
 
-    {/*dbRef.setValue({
-      text: this.state.value,
-      roles: {
-        [user]: "owner"
-      }
-    })*/}
-
     dbRef.set({
       comments: {
         [id]: {
