@@ -144,14 +144,14 @@ export default class Post extends React.Component {
                 {tags}
               </div>
             </ToastBody>
-            <FormGroup>
-              <Form onSubmit={this.handleSubmit}>
-                <Input type="text" placeholder="Leave your comment here..."
-                value={this.state.value} onChange={this.handleChange} />
-                <Button color="primary" type="submit">Post Comment</Button>
-              </Form>
-            </FormGroup>
           </Toast>
+          <FormGroup>
+            <Form onSubmit={this.handleSubmit}>
+              <Input id="comment-text-box" type="textarea" placeholder="Leave your comment here..."
+              value={this.state.value} onChange={this.handleChange} />
+              <Button id="post-comment-button" color="primary" type="submit">COMMENT</Button>
+            </Form>
+          </FormGroup>
         </div>
       </div>
     );

@@ -331,3 +331,17 @@ p {
 #post-submission-tags {
   padding: 7.5px;
 }
+
+#comment-text-box {
+  padding: 15px !important;
+  margin-bottom: 10px;
+  height: 13vh;
+}
+
+#post-comment-button {
+  background: linear-gradient(270deg, rgba(255,128,109,1) 25%, rgba(251,203,66,1) 100%);
+  border: none;
+  font-weight: 600;
+  font-size: small;
+  padding: 10px;
+}
