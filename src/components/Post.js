@@ -2,15 +2,10 @@ import React from 'react';
 import {
   Toast,
   ToastBody,
-  ToastHeader,
   Badge,
   Button,
-  Collapse,
-  CardBody,
-  Card,
   FormGroup,
   Form,
-  Label,
   Input
  } from 'reactstrap';
  import * as firebase from "firebase/app";

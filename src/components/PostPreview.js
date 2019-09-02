@@ -3,19 +3,10 @@ import {
   Toast,
   ToastBody,
   ToastHeader,
-  Badge,
-  Button,
-  Collapse,
-  CardBody,
-  Card,
-  FormGroup,
-  Form,
-  Label,
-  Input
+  Badge
  } from 'reactstrap';
  import * as firebase from "firebase/app";
- import Post from './Post.js'
- import { Router, Route, Link } from 'react-router-dom'
+ import { Link } from 'react-router-dom'
 
 export default class PostPreview extends React.Component {
   constructor(props) {

@@ -7,7 +7,6 @@ import {
   Col,
   Button
 } from 'reactstrap';
-import { Link } from "react-router-dom";
 import title from '../img/neuroquery-login-title.svg';
 import loginImage from '../img/login-image.svg'
 import twitter from '../img/twitter-login.svg'

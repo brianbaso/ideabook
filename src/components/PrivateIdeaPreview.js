@@ -14,7 +14,6 @@ import {
   Input
  } from 'reactstrap';
  import * as firebase from "firebase/app";
- import { Router, Route, Link } from 'react-router-dom'
 
 export default class PrivateIdeaPreview extends React.Component {
   constructor(props) {
