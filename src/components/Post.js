@@ -14,7 +14,8 @@ import {
   Input
  } from 'reactstrap';
  import * as firebase from "firebase/app";
-let admin = require('firebase-admin');
+const admin = require('firebase-admin');
+const shortid = require('shortid');
 
 export default class Post extends React.Component {
   constructor(props) {
@@ -85,12 +86,22 @@ export default class Post extends React.Component {
     const user = firebase.auth().currentUser.uid;
     const db = firebase.firestore();
     const dbRef = db.collection("posts").doc(this.state.id);
+    const id = shortid.generate();
+
+    {/*dbRef.setValue({
+      text: this.state.value,
+      roles: {
+        [user]: "owner"
+      }
+    })*/}
 
     dbRef.set({
-      comment: {
-        text: this.state.value,
-        roles: {
-          [user]: "owner"
+      comments: {
+        [id]: {
+          text: this.state.value,
+          roles: {
+            [user]: "owner"
+          }
         }
       }
     }, { merge: true })
