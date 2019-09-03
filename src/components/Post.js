@@ -63,7 +63,6 @@ export default class Post extends React.Component {
 
   handleSubmit(event) {
     console.log('Comment successfully submitted', this.state.value);
-    debugger;
     this.saveComment();
     event.preventDefault();
   }
@@ -74,8 +73,9 @@ export default class Post extends React.Component {
     const db = firebase.firestore();
     const dbRef = db.collection("posts").doc(this.state.postId);
     const id = shortid.generate();
+    const time = firebase.firestore.Timestamp.fromDate(new Date());
 
-    console.log(displayName);
+
     dbRef.set({
       comments: {
         [id]: {
@@ -83,7 +83,8 @@ export default class Post extends React.Component {
           author: displayName,
           roles: {
             [user]: "owner"
-          }
+          },
+          createdAt: time
         }
       }
     }, { merge: true })
@@ -105,17 +106,31 @@ export default class Post extends React.Component {
       );
     })
 
-    Object.keys(this.state.comments).map((comment) => {
-      let data = this.state.comments[comment];
+    if (this.state.comments) {
+      const timeOptions = {
+        year: 'numeric', month: 'long', day: 'numeric',
+        hour: 'numeric', minute: 'numeric'
+      };
 
-      comments.push(
-        <div id="post-comment">
-          <p id="comment-text">
-            {data.text} by {data.author}
-          </p>
-        </div>
-      );
-    })
+      Object.keys(this.state.comments).map((comment) => {
+        const data = this.state.comments[comment];
+        const time = data.createdAt.toDate().toLocaleString("en-US", timeOptions);
+        
+        comments.push(
+          <div id="post-comment">
+            <div id="comment-header">
+              <p>{data.author}</p>
+              <p>{time}</p>
+            </div>
+            <div id="comment-body">
+              <p id="comment-text">
+                {data.text}
+              </p>
+            </div>
+          </div>
+        );
+      })
+    }
 
     return (
       <div id="libraryContainer">
