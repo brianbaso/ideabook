@@ -347,3 +347,9 @@ p {
   font-size: small;
   padding: 10px;
 }
+
+#comment-text {
+  font-weight: 600;
+  font-size: medium;
+  color: #49636B;
+}

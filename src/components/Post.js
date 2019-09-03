@@ -102,9 +102,13 @@ export default class Post extends React.Component {
     })
 
     Object.keys(this.state.comments).map((comment) => {
+      let data = this.state.comments[comment];
+      
       comments.push(
         <div id="post-comment">
-          <p id="prob-sol-text">{this.state.comments[comment].text}</p>
+          <p id="comment-text">
+            {data.text} by {Object.keys(data.roles)[0]}
+          </p>
         </div>
       );
     })
