@@ -63,20 +63,24 @@ export default class Post extends React.Component {
 
   handleSubmit(event) {
     console.log('Comment successfully submitted', this.state.value);
+    debugger;
     this.saveComment();
     event.preventDefault();
   }
 
   saveComment() {
     const user = firebase.auth().currentUser.uid;
+    const displayName = firebase.auth().currentUser.displayName;
     const db = firebase.firestore();
     const dbRef = db.collection("posts").doc(this.state.postId);
     const id = shortid.generate();
 
+    console.log(displayName);
     dbRef.set({
       comments: {
         [id]: {
           text: this.state.value,
+          author: displayName,
           roles: {
             [user]: "owner"
           }
@@ -103,11 +107,11 @@ export default class Post extends React.Component {
 
     Object.keys(this.state.comments).map((comment) => {
       let data = this.state.comments[comment];
-      
+
       comments.push(
         <div id="post-comment">
           <p id="comment-text">
-            {data.text} by {Object.keys(data.roles)[0]}
+            {data.text} by {data.author}
           </p>
         </div>
       );
