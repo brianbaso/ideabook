@@ -4,6 +4,8 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import JavascriptTimeAgo from 'javascript-time-ago'
+import en from 'javascript-time-ago/locale/en'
 
 /*
 
@@ -68,7 +70,10 @@ firebase.initializeApp(firebaseConfig);
 //     }
 //   });
 
+
 // firebase.auth().createUserWithEmailAndPassword(testUser, testPassword);
+JavascriptTimeAgo.locale(en);
+
 ReactDOM.render(<App/>, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change

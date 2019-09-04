@@ -8,7 +8,8 @@ import {
   Form,
   Input
  } from 'reactstrap';
- import * as firebase from "firebase/app";
+import * as firebase from "firebase/app";
+import Created from './Created.js'
 const shortid = require('shortid');
 
 export default class Post extends React.Component {
@@ -31,8 +32,10 @@ export default class Post extends React.Component {
   }
 
   componentDidMount() {
+    // Grab post ID from URL
     const url = window.location.pathname.split('/');
     const postId = url[2];
+
     const db = firebase.firestore();
     const dbRef = db.collection("posts").doc(postId);
 
@@ -75,7 +78,6 @@ export default class Post extends React.Component {
     const id = shortid.generate();
     const time = firebase.firestore.Timestamp.fromDate(new Date());
 
-
     dbRef.set({
       comments: {
         [id]: {
@@ -106,21 +108,16 @@ export default class Post extends React.Component {
       );
     })
 
+    // If one comment exists
     if (this.state.comments) {
-      const timeOptions = {
-        year: 'numeric', month: 'long', day: 'numeric',
-        hour: 'numeric', minute: 'numeric'
-      };
-
       Object.keys(this.state.comments).map((comment) => {
         const data = this.state.comments[comment];
-        const time = data.createdAt.toDate().toLocaleString("en-US", timeOptions);
-        
+
         comments.push(
           <div id="post-comment">
             <div id="comment-header">
-              <p>{data.author}</p>
-              <p>{time}</p>
+              <p id="comment-author">{data.author} •</p>
+              <Created date={data.createdAt.toDate()} />
             </div>
             <div id="comment-body">
               <p id="comment-text">
