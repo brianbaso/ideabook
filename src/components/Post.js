@@ -110,8 +110,9 @@ export default class Post extends React.Component {
 
     // If one comment exists
     if (this.state.comments) {
-      Object.keys(this.state.comments).map((comment) => {
+      Object.keys(this.state.comments).map((comment, i) => {
         const data = this.state.comments[comment];
+        const rowLine = (i !== Object.keys(this.state.comments).length - 1 ? <hr /> : "");
 
         comments.push(
           <div id="post-comment">
@@ -124,6 +125,7 @@ export default class Post extends React.Component {
                 {data.text}
               </p>
             </div>
+            {rowLine}
           </div>
         );
       })
@@ -159,8 +161,8 @@ export default class Post extends React.Component {
               <Button id="post-comment-button" color="primary" type="submit">COMMENT</Button>
             </Form>
           </FormGroup>
-          <Toast id="libraryParentToast">
-            <ToastBody id="libraryBodyToast">
+          <Toast id="comment-parent-toast">
+            <ToastBody id="comment-body-toast">
               {comments}
             </ToastBody>
           </Toast>

@@ -365,3 +365,12 @@ p {
   font-size: medium;
   color: #49636B;
 }
+
+#comment-body-toast {
+
+}
+
+#comment-parent-toast {
+  margin-top: 10px;
+  max-width: none;
+}
