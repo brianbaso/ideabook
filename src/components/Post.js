@@ -23,7 +23,8 @@ export default class Post extends React.Component {
       submissionTags: [],
       problem: '',
       solution: '',
-      comments: {}
+      comments: {},
+      createdAt: ''
     };
 
     this.handleChange = this.handleChange.bind(this);

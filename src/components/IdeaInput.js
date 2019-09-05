@@ -30,13 +30,15 @@ export default class IdeaInput extends React.Component {
     const user = firebase.auth().currentUser.uid;
     const db = firebase.firestore();
     const dbRef = db.collection("users").doc(user).collection("private-ideas");
+    const time = firebase.firestore.Timestamp.fromDate(new Date());
 
     dbRef.add({
       content: this.state.value,
       submissionTags: this.props.submissionTags,
       roles: {
         [user]: "owner"
-      }
+      },
+      createdAt: time
     })
     .then(() => {
       console.log("Document successfully written.");

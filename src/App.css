@@ -133,8 +133,28 @@ p {
   margin-top: 5px;
 }
 
+#private-idea-created {
+  font-weight: 700;
+  font-size: smaller;
+  color: #6c6e70;
+  margin-top: 5px;
+  padding-left: 5px;
+}
+
+#private-idea-created-child {
+  display: inline-flex;
+}
+
+#private-idea-share-created-seperator {
+  padding-right: 5px;
+}
+
 #share-button:hover {
   cursor: pointer;
+}
+
+#share-date-parent {
+    display: inline-flex;
 }
 
 #login-container {

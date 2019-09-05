@@ -14,6 +14,7 @@ import {
   Input
  } from 'reactstrap';
  import * as firebase from "firebase/app";
+ import Created from './Created.js'
 
 export default class PrivateIdeaPreview extends React.Component {
   constructor(props) {
@@ -49,9 +50,6 @@ export default class PrivateIdeaPreview extends React.Component {
   }
 
   handleSubmit(event) {
-    // debugger;
-    // console.log('Post successfully submitted',
-    //  this.state.problem, this.state.solution);
      this.createPost();
      event.preventDefault();
   }
@@ -108,9 +106,19 @@ export default class PrivateIdeaPreview extends React.Component {
                 {this.props.content}
             </div>
             <div>
-              <p id="share-button" onClick={this.toggle}>
-                Share
-              </p>
+              <div id="share-date-parent">
+                <p id="share-button" onClick={this.toggle}>
+                  Share
+                </p>
+                <div id="private-idea-created">
+                  {this.props.createdAt &&
+                    <div id="private-idea-created-child">
+                      <p id="private-idea-share-created-seperator">•</p>
+                      <Created date={this.props.createdAt.toDate()} />
+                    </div>
+                  }
+                </div>
+              </div>
               <Collapse isOpen={this.state.collapse}>
                 <Card>
                   <CardBody>

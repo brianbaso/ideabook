@@ -46,6 +46,7 @@ export default class Library extends React.Component {
           key={idea.id}
           submissionTags={idea.submissionTags}
           content={idea.content}
+          createdAt={idea.createdAt}
          />
       );
     });
