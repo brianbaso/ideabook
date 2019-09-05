@@ -50,7 +50,8 @@ export default class Post extends React.Component {
           submissionTags: data.submissionTags,
           problem: data.problem,
           solution: data.solution,
-          comments: data.comments
+          comments: data.comments,
+          createdAt: data.createdAt
         });
       })
       .catch((e) => {
@@ -136,7 +137,9 @@ export default class Post extends React.Component {
         <div className="my-2 rounded" id="libraryParentDiv">
           <h2>{this.state.content}</h2>
           <div id="post-subtitle-text">
-            <p>August 31, 2019</p>
+          {this.state.createdAt &&
+            <Created date={this.state.createdAt.toDate()} />
+          }
           </div>
           <Toast id="libraryParentToast">
             <ToastBody id="libraryBodyToast">

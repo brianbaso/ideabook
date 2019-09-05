@@ -68,6 +68,7 @@ export default class PrivateIdeaPreview extends React.Component {
     const user = firebase.auth().currentUser.uid;
     const db = firebase.firestore();
     const dbRef = db.collection("posts");
+    const time = firebase.firestore.Timestamp.fromDate(new Date());
 
     dbRef.add({
       content: this.props.content,
@@ -76,7 +77,8 @@ export default class PrivateIdeaPreview extends React.Component {
       solution: this.state.solution,
       roles: {
         [user]: "owner"
-      }
+      },
+      createdAt: time
     })
     .then(() => {
       console.log("Post successfully created");
