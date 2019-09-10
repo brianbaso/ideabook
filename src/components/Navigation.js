@@ -14,8 +14,27 @@ import Post from './Post.js'
 import logo from '../img/neuroquery-logo.svg';
 import loginButton from '../img/login-button.png';
 import signupButton from '../img/signup-button.png';
+import * as firebase from "firebase/app";
 
 export default class Navigation extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+
+    };
+
+    this.signOut = this.signOut.bind(this);
+  }
+
+  signOut() {
+    firebase.auth().signOut().then(function() {
+      console.log('successfully signed out.');
+    }).catch(function(error) {
+      // An error happened.
+    });
+  }
+
   render() {
     return (
       <Router>
@@ -36,7 +55,7 @@ export default class Navigation extends React.Component {
                   <Link to="/signup/"><img className="navbar-buttons" alt="Sign up" src={signupButton}/></Link>
                 </NavItem>
                 <NavItem className="navbar-buttons-parent-right">
-                  <p>Sign out</p>
+                  <p onClick={this.signOut}>Sign out</p>
                 </NavItem>
               </Nav>
           </Navbar>
