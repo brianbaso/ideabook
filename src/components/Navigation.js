@@ -35,6 +35,9 @@ export default class Navigation extends React.Component {
                 <NavItem className="navbar-buttons-parent-right">
                   <Link to="/signup/"><img className="navbar-buttons" alt="Sign up" src={signupButton}/></Link>
                 </NavItem>
+                <NavItem className="navbar-buttons-parent-right">
+                  <p>Sign out</p>
+                </NavItem>
               </Nav>
           </Navbar>
 
