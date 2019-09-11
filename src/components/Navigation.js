@@ -22,31 +22,46 @@ export default class Navigation extends React.Component {
     super(props);
 
     this.state = {
-      isLoggedIn: false
+      isLoggedIn: false,
+      isAuthenticating: true
     };
 
     this.signOut = this.signOut.bind(this);
+    this.authUser = this.authUser.bind(this);
   }
 
   componentDidMount() {
-    const self = this;
+    this.authUser().then((user) => {
+       this.setState({
+          isLoggedIn: true,
+          isAuthenticating: false
+        });
+    }, (error) => {
+       this.setState({
+         isLoggedIn: false,
+         isAuthenticating: false
+       });
+       console.log(error);
+    });
+  }
 
-    firebase.auth().onAuthStateChanged((user) => {
+  authUser() {
+   return new Promise(function (resolve, reject) {
+    firebase.auth().onAuthStateChanged(function(user) {
       if (user) {
-        this.setState({
-          isLoggedIn: true
-        });
+        resolve(user);
       } else {
-        this.setState({
-          isLoggedIn: false
-        });
+        reject('User not logged in');
       }
-    })
+    });
+   });
   }
 
   signOut() {
     firebase.auth().signOut().then(function() {
       console.log('successfully signed out.');
+      // Take user to home page after successful logout
+      window.location='/';
     }).catch(function(e) {
       // An error happened.
       console.log('signout failed: ', e);
@@ -56,25 +71,30 @@ export default class Navigation extends React.Component {
   render() {
     let authButton;
 
-    if (this.state && this.state.isLoggedIn) {
-      authButton = (
-        <div>
-          <NavItem className="navbar-buttons-parent-right">
-            <p onClick={this.signOut}>Sign out</p>
-          </NavItem>
-        </div>
-      );
+    // Do not load any nav buttons until auth has completed
+    if (this.state.isAuthenticating) {
+      return null;
     } else {
-      authButton = (
-        <div>
-          <NavItem className="navbar-buttons-parent-left">
-            <Link to="/login/"><img className="navbar-buttons" alt="Log In" src={loginButton}/></Link>
-          </NavItem>
-          <NavItem className="navbar-buttons-parent-right">
-            <Link to="/signup/"><img className="navbar-buttons" alt="Sign up" src={signupButton}/></Link>
-          </NavItem>
-        </div>
-      );
+      if (this.state.isLoggedIn) {
+        authButton = (
+          <div>
+            <NavItem className="navbar-buttons-parent-right">
+              <p onClick={this.signOut}>Sign out</p>
+            </NavItem>
+          </div>
+        );
+      } else {
+        authButton = (
+          <div>
+            <NavItem className="navbar-buttons-parent-left">
+              <Link to="/login/"><img className="navbar-buttons" alt="Log In" src={loginButton}/></Link>
+            </NavItem>
+            <NavItem className="navbar-buttons-parent-right">
+              <Link to="/signup/"><img className="navbar-buttons" alt="Sign up" src={signupButton}/></Link>
+            </NavItem>
+          </div>
+        );
+      }
     }
 
     return (
