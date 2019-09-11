@@ -15,27 +15,68 @@ import logo from '../img/neuroquery-logo.svg';
 import loginButton from '../img/login-button.png';
 import signupButton from '../img/signup-button.png';
 import * as firebase from "firebase/app";
+import "firebase/auth"
 
 export default class Navigation extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-
+      isLoggedIn: false
     };
 
     this.signOut = this.signOut.bind(this);
   }
 
+  componentDidMount() {
+    const self = this;
+
+    firebase.auth().onAuthStateChanged((user) => {
+      if (user) {
+        this.setState({
+          isLoggedIn: true
+        });
+      } else {
+        this.setState({
+          isLoggedIn: false
+        });
+      }
+    })
+  }
+
   signOut() {
     firebase.auth().signOut().then(function() {
       console.log('successfully signed out.');
-    }).catch(function(error) {
+    }).catch(function(e) {
       // An error happened.
+      console.log('signout failed: ', e);
     });
   }
 
   render() {
+    let authButton;
+
+    if (this.state && this.state.isLoggedIn) {
+      authButton = (
+        <div>
+          <NavItem className="navbar-buttons-parent-right">
+            <p onClick={this.signOut}>Sign out</p>
+          </NavItem>
+        </div>
+      );
+    } else {
+      authButton = (
+        <div>
+          <NavItem className="navbar-buttons-parent-left">
+            <Link to="/login/"><img className="navbar-buttons" alt="Log In" src={loginButton}/></Link>
+          </NavItem>
+          <NavItem className="navbar-buttons-parent-right">
+            <Link to="/signup/"><img className="navbar-buttons" alt="Sign up" src={signupButton}/></Link>
+          </NavItem>
+        </div>
+      );
+    }
+
     return (
       <Router>
         <div>
@@ -48,15 +89,7 @@ export default class Navigation extends React.Component {
                 <NavItem className="navbar-text-buttons">
                   <Link to="/game/" className="navbar-text">Game</Link>
                 </NavItem>
-                <NavItem className="navbar-buttons-parent-left">
-                  <Link to="/login/"><img className="navbar-buttons" alt="Log In" src={loginButton}/></Link>
-                </NavItem>
-                <NavItem className="navbar-buttons-parent-right">
-                  <Link to="/signup/"><img className="navbar-buttons" alt="Sign up" src={signupButton}/></Link>
-                </NavItem>
-                <NavItem className="navbar-buttons-parent-right">
-                  <p onClick={this.signOut}>Sign out</p>
-                </NavItem>
+                {authButton}
               </Nav>
           </Navbar>
 
