@@ -78,6 +78,12 @@ export default class Navigation extends React.Component {
       if (this.state.isLoggedIn) {
         authButton = (
           <div>
+            <NavItem className="navbar-text-buttons">
+              <Link to="/library/" className="navbar-text">Library</Link>
+            </NavItem>
+            <NavItem className="navbar-text-buttons">
+              <Link to="/game/" className="navbar-text">Game</Link>
+            </NavItem>
             <NavItem className="navbar-buttons-parent-right">
               <p onClick={this.signOut}>Sign out</p>
             </NavItem>
@@ -103,12 +109,6 @@ export default class Navigation extends React.Component {
           <Navbar light expand="md">
             <Link to="/"><img className="navbar-logo" alt="Neuroquery" src={logo}/></Link>
               <Nav className="ml-auto" navbar>
-                <NavItem className="navbar-text-buttons">
-                  <Link to="/library/" className="navbar-text">Library</Link>
-                </NavItem>
-                <NavItem className="navbar-text-buttons">
-                  <Link to="/game/" className="navbar-text">Game</Link>
-                </NavItem>
                 {authButton}
               </Nav>
           </Navbar>
