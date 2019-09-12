@@ -61,7 +61,7 @@ export default class Navigation extends React.Component {
     firebase.auth().signOut().then(function() {
       console.log('successfully signed out.');
       // Take user to home page after successful logout
-      window.location='/';
+      window.location='/login';
     }).catch(function(e) {
       // An error happened.
       console.log('signout failed: ', e);
@@ -77,28 +77,34 @@ export default class Navigation extends React.Component {
     } else {
       if (this.state.isLoggedIn) {
         authButton = (
-          <div>
-            <NavItem className="navbar-text-buttons">
-              <Link to="/library/" className="navbar-text">Library</Link>
-            </NavItem>
-            <NavItem className="navbar-text-buttons">
-              <Link to="/game/" className="navbar-text">Game</Link>
-            </NavItem>
-            <NavItem className="navbar-buttons-parent-right">
-              <p onClick={this.signOut}>Sign out</p>
-            </NavItem>
-          </div>
+          <Navbar light expand="md">
+            <Link to="/"><img className="navbar-logo" alt="Neuroquery" src={logo}/></Link>
+              <Nav className="ml-auto" navbar>
+                <NavItem className="navbar-text-buttons">
+                  <Link to="/library/" className="navbar-text">Library</Link>
+                </NavItem>
+                <NavItem className="navbar-text-buttons">
+                  <Link to="/game/" className="navbar-text">Game</Link>
+                </NavItem>
+                <NavItem className="navbar-buttons-parent-right">
+                  <p onClick={this.signOut}>Sign out</p>
+                </NavItem>
+              </Nav>
+          </Navbar>
         );
       } else {
         authButton = (
-          <div>
-            <NavItem className="navbar-buttons-parent-left">
-              <Link to="/login/"><img className="navbar-buttons" alt="Log In" src={loginButton}/></Link>
-            </NavItem>
-            <NavItem className="navbar-buttons-parent-right">
-              <Link to="/signup/"><img className="navbar-buttons" alt="Sign up" src={signupButton}/></Link>
-            </NavItem>
-          </div>
+          <Navbar light expand="md">
+            <Link to="/"><img className="navbar-logo" alt="Neuroquery" src={logo}/></Link>
+              <Nav className="ml-auto" navbar>
+                <NavItem className="navbar-buttons-parent-left">
+                  <Link to="/login/"><img className="navbar-buttons" alt="Log In" src={loginButton}/></Link>
+                </NavItem>
+                <NavItem className="navbar-buttons-parent-right">
+                  <Link to="/signup/"><img className="navbar-buttons" alt="Sign up" src={signupButton}/></Link>
+                </NavItem>
+              </Nav>
+          </Navbar>
         );
       }
     }
@@ -106,12 +112,8 @@ export default class Navigation extends React.Component {
     return (
       <Router>
         <div>
-          <Navbar light expand="md">
-            <Link to="/"><img className="navbar-logo" alt="Neuroquery" src={logo}/></Link>
-              <Nav className="ml-auto" navbar>
+
                 {authButton}
-              </Nav>
-          </Navbar>
 
           <Route exact path="/" component={Community}/>
           <Route path="/game/" component={Hand}/>
