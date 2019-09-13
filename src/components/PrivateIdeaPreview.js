@@ -63,7 +63,7 @@ export default class PrivateIdeaPreview extends React.Component {
     5. Create new post and reference new variables + fields from dom
   */
   createPost() {
-    const user = firebase.auth().currentUser.uid;
+    const user = firebase.auth().currentUser;
     const db = firebase.firestore();
     const dbRef = db.collection("posts");
     const time = firebase.firestore.Timestamp.fromDate(new Date());
@@ -74,9 +74,10 @@ export default class PrivateIdeaPreview extends React.Component {
       problem: this.state.problem,
       solution: this.state.solution,
       roles: {
-        [user]: "owner"
+        [user.uid]: "owner"
       },
-      createdAt: time
+      createdAt: time,
+      author: user.displayName
     })
     .then(() => {
       console.log("Post successfully created");

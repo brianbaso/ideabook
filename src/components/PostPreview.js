@@ -19,6 +19,7 @@ export default class PostPreview extends React.Component {
       );
     })
 
+    console.log(this.props.content, ' by ', this.props.author);
     return (
       <div className="my-2 rounded" id="libraryParentDiv">
         <Toast id="libraryParentToast">
@@ -31,12 +32,19 @@ export default class PostPreview extends React.Component {
                 {this.props.content}
               </Link>
             </div>
-            {this.props.createdAt &&
-              <div id="private-idea-created-child">
-                <p id="private-idea-share-created-seperator">•</p>
-                <Created date={this.props.createdAt.toDate()} />
+            <div id="share-date-parent">
+              <p id="share-button">
+                {this.props.author}
+              </p>
+              <div id="private-idea-created">
+                {this.props.createdAt &&
+                  <div id="private-idea-created-child">
+                    <p id="private-idea-share-created-seperator">•</p>
+                    <Created date={this.props.createdAt.toDate()} />
+                  </div>
+                }
               </div>
-            }
+            </div>
           </ToastBody>
         </Toast>
       </div>

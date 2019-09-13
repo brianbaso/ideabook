@@ -41,6 +41,8 @@ export default class Community extends React.Component {
           id={idea.id}
           submissionTags={idea.submissionTags}
           content={idea.content}
+          createdAt={idea.createdAt}
+          author={idea.author}
          />
       );
     });

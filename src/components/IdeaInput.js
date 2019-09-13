@@ -20,6 +20,7 @@ export default class IdeaInput extends React.Component {
   }
 
   handleSubmit(event) {
+    debugger;
     console.log('Private idea successfully submitted', this.state.value);
     this.saveUserData();
     event.preventDefault();
@@ -27,17 +28,19 @@ export default class IdeaInput extends React.Component {
 
   // zip
   saveUserData() {
-    const user = firebase.auth().currentUser.uid;
+    const user = firebase.auth().currentUser;
     const db = firebase.firestore();
-    const dbRef = db.collection("users").doc(user).collection("private-ideas");
+    const dbRef = db.collection("users").doc(user.uid).collection("private-ideas");
     const time = firebase.firestore.Timestamp.fromDate(new Date());
 
+    console.log(user.displayName);
     dbRef.add({
       content: this.state.value,
       submissionTags: this.props.submissionTags,
       roles: {
-        [user]: "owner"
+        [user.uid]: "owner"
       },
+      author: user.displayName,
       createdAt: time
     })
     .then(() => {
