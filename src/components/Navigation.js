@@ -86,8 +86,9 @@ export default class Navigation extends React.Component {
                 <NavItem className="navbar-text-buttons">
                   <Link to="/game/" className="navbar-text">Game</Link>
                 </NavItem>
-                <NavItem className="navbar-buttons-parent-right">
-                  <p onClick={this.signOut}>Sign out</p>
+                <NavItem className="navbar-text-buttons">
+                  <p onClick={this.signOut} className="navbar-text"
+                   id="sign-out-button">Sign out</p>
                 </NavItem>
               </Nav>
           </Navbar>
