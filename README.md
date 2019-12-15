@@ -1,6 +1,6 @@
 # Ideabook - Functional Specifications
 Brian Baso 
-Status: Draft (6/30/19)
+A project that I worked on in my freetime during the Summer of 2019 - put it on pause due to resuming school in the fall, building new software with Knight Hacks, and working a part time job as a Product Manager for an emerging FinTech startup, Finexio.
 
 ## 1. Vision
 
