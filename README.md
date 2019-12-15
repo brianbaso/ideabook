@@ -1,4 +1,4 @@
-# Neuroquery - Functional Specifications
+# Ideabook - Functional Specifications
 Brian Baso 
 Status: Draft (6/30/19)
 
@@ -10,13 +10,11 @@ In order to create an online community that creates and shares ideas for startup
 As an open source entrepreneur 
 I want a tool that helps me contrive ideas for startups and then get feedback from other OSEs
 
-Dribbble for startup/ side project inspiration?
-
-## 2. Summary
+## 2. Inspiration
 
 The OCEAN personality trait model, which is argued to be the most accurate personality evaluation to date by academic psychologists, and also was the foundation of the new age marketing called Psychographics by Cambridge Analytica… States that there are five different kinds of personality traits. (Openness (Creativity), Conscientiousness, Extraversion, Agreeableness, Neuroticism) Assuming this model is an accurate assessment of personality, then you would be foolish to say that “Everyone is creative”. Saying that everyone is creative is the equivalent to saying everyone is neurotic. This is obviously not true. The point I am trying to get across is that not everyone is creative, in fact, a small minority of people have the creative capacity to come up with feasible ideas for the businesses of tomorrow.
 
-I want to create a community and a game. The game will help people come up with business ideas, it’s like cards of humanity for budding entrepreneurs. I predict that there will be a few members in the community (>20%) that will come up with any idea worth engaging. I predict that most of these people will already be busy with their own ventures, or just don’t have time to pursue most of the ideas they come up with. So why not crowd source these ideas for the startup businesses of tomorrow? Think of Elon Musk giving away the plans for Hyperloop, but at scale. 
+I want to create a community and a game. The game will help people come up with business ideas, it’s like cards of humanity for budding entrepreneurs. I predict that there will be a few members in the community (<20%) that will come up with any idea worth engaging. I predict that most of these people will already be busy with their own ventures, or just don’t have time to pursue most of the ideas they come up with. So why not crowd source these ideas for the startup businesses of tomorrow? Think of Elon Musk giving away the plans for Hyperloop, but at scale. 
 
 ## 3. Scope of Work
 
@@ -92,28 +90,3 @@ I can do a fuzzy search to view other ideas that include my idea’s tag
 - Number of countries with users
 
 “Generally-speaking, for Indie Hackers, my focus nowadays is on taking what works and doing more of it. There’s actually a great quote from Charlie Munger about this. He calls it the “essential algorithm to life” or something lofty like that: find what works and do more of it.” - Courtland Allen
-
-## 4. Core Scenarios & Experiences
-
-
-
-## 5. Functional Capabilities
-
-
-
-## 6. Dependencies & Partner Requirements
-
-
-
-## 7. Risks & Mitigations
-
-
-
-## 8. Appendix
-
-
-
-
-
-
-
